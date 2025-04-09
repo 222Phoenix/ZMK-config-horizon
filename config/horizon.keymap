@@ -13,6 +13,15 @@
 #include <behaviors/mouse_keys.dtsi>
 
 #define COPPST &hold_tap LC(V) LC(C)
+#define MS_L &mmv MOVE_LEFT
+#define MS_D &mmv MOVE_DOWN
+#define MS_U &mmv MOVE_UP
+#define MS_R &mmv MOVE_RIGHT
+
+#define SCR_L &msc SCRL_LEFT
+#define SCR_D &msc SCRL_DOWN
+#define SCR_U &msc SCRL_UP
+#define SCR_R &msc SCRL_RIGHT
 
 &lt {
     tapping-term-ms = <180>;
@@ -139,14 +148,14 @@ macros {
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LCTRL  &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp APOS   &kp SEMI
                 &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      &kp DEL    &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp ENTER
-                &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &kp E     &kp BSPC   &none      &none      &none      &none
+                &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 2 SPACE &kp E     &kp BSPC   &none      &none      &none      &none
             >;
         };
 
-        1 {
+        1 { //not used
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     
             >;
@@ -154,17 +163,17 @@ macros {
 
         2 {
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &kp Y        &kp N7     &kp N8     &kp N9     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans                           &kp H        &kp N4     &kp N5     &kp N6     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N        &kp N1     &kp N2     &kp N3     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans       &kp N7     &kp N8     &kp N9     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans       &kp N4     &kp N5     &kp N6     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &kp N1     &kp N2     &kp N3     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &kp N0     &trans     &trans     &trans     
             >;
         };        
 
         3 {
             bindings = <
-                &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                           &kp Y        &kp N7     &kp N8     &kp N9     &trans     &trans
-                &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                          &kp H        &kp N4     &kp N5     &kp N6     &kp PLUS   &trans
+                &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                           &trans       &kp N7     &kp N8     &kp N9     &kp MINUS  &trans
+                &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                          &trans       &kp N4     &kp N5     &kp N6     &kp PLUS   &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans     
             >;
@@ -172,17 +181,17 @@ macros {
 
         4 {
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans       &trans     &trans     &trans     &trans     &trans
-                &kp TILDE  &kp EXCL &kp LPAR &kp RPAR &kp DLLR &kp AMPS                                 &trans       &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &kp LC(LA(DEL))     &trans     &trans                           &trans       &kp CAPS   &kp SLCK     &trans     &trans     &trans
+                &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET    &kp AMPS   &kp ASTRK  &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans
             >;
         };
 
-        5 {
+        5 { //not used
             bindings = <
                 &trans     &trans     &trans     &trans     &trans     &trans                           &trans       &trans     &trans     &trans     &trans     &trans
-                &kp TILDE  &kp EXCL   &kp LPAR   &kp RPAR   &kp DLLR   &kp AMPS                         &trans       &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans       &trans     &trans     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans       &trans     &trans     &trans     &trans     &trans
             >;
