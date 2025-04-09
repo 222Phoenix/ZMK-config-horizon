@@ -12,10 +12,123 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/mouse_keys.dtsi>
 
+#define COPPST &hold_tap LC(V) LC(C)
+
 &lt {
     tapping-term-ms = <180>;
     flavor = "tap-preferred";
 };
+
+//tap dance tap dance tap dance tap dance ctap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance 
+
+/ {
+    behaviors {
+        tdltb: tap_dance_ltb {                                 //left tab
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&hold_tap LA(LEFT) LS(COMMA)>, <&kp LC(LS(TAB))>;
+        };
+        tdrtb: tap_dance_rtb {                                 //right tab
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&hold_tap LA(RIGHT) LS(DOT)>, <&kp LC(TAB)>;
+        };
+        tdmck: tap_dance_mck {                                 //mclick
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&hold_tap_clk 1 MCLK>, <&kp LC(LS(T))>;
+        };
+        tdrck: tap_dance_rck {                                 //rclick
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&hold_tap_clk 1 RCLK>, <&kp LC(W)>;
+        };
+
+    };
+};
+
+//custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap
+
+/ {
+behaviors {
+  hold_tap: hold_tap {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <300>;
+    quick-tap-ms = <0>;
+    bindings = <&kp>, <&kp>;
+  };
+  hold_tap_clk: hold_tap_clk {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <300>;
+    quick-tap-ms = <0>;
+    bindings = <&mo>, <&mkp>;
+  };
+
+ };
+};
+
+//macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros 
+
+/ {
+macros {
+
+    copysp: copysp {
+        label = "copysp";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTRL>
+            , <&macro_tap &kp C &kp L &kp V &kp A &kp C>
+            , <&macro_release &kp LCTRL>
+            ;
+    };
+
+  };
+};
+
+//combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos 
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_pgdn {
+            timeout-ms = <175>;
+            key-positions = <4 5>;
+            bindings = <&kp PG_DN>;
+        };
+        combo_esc {
+            timeout-ms = <175>;
+            key-positions = <5 6>;
+            bindings = <&kp ESC>;
+        };
+        combo_pgup {
+            timeout-ms = <175>;
+            key-positions = <6 7>;
+            bindings = <&kp PG_UP>;
+        };
+        combo_reset {
+            timeout-ms = <175>;
+            key-positions = <4 7>;
+            bindings = <&bootloader>;
+        }; 
+
+        combo_mute {
+            timeout-ms = <175>;
+            key-positions = <1 2>;
+            bindings = <&kp PSCRN>;
+        };  
+
+    };
+};
+
+//keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap 
 
 / {
     keymap {
@@ -26,14 +139,14 @@
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LCTRL  &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp APOS   &kp SEMI
                 &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      &kp DEL    &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp ENTER
-                &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &kp E     &kp BSPC   &none      &none      &kp RGUI   &kp RALT
+                &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &kp E     &kp BSPC   &none      &none      &none      &none
             >;
         };
 
         1 {
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &mkp LCLK  &trans     &trans     &kp PSCRN  &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     
             >;
