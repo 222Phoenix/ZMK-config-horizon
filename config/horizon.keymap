@@ -113,7 +113,7 @@ behaviors {
         slsh: slsh {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <BSLH>, <&slshm>;
+            bindings = <SLSH>, <&slshm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
 
