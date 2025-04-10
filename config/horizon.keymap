@@ -104,6 +104,13 @@ behaviors {
             bindings = <&kp A>, <&kp LC(A)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        quot: quot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <QUOT>, <&quotm>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
     };
 };
 
@@ -128,6 +135,15 @@ macros {
         bindings
             = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>;
     };
+    quotm: quotm {
+        label = "quotm";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LSFT>,
+              <&macro_tap &kp APOS &kp APOS &kp LEFT &kp LEFT>,
+              <&macro_release &kp LSFT>;
+    };    
 
   };
 };
@@ -228,7 +244,7 @@ macros {
         0 { //done
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-                &kp LCTRL  &ctrla     &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       QUOT
+                &kp LCTRL  &ctrla     &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
                 &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    SLSH       SENT
                 &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &to 1     &none      &none      &none      &none      &none
             >;
@@ -290,4 +306,4 @@ macros {
 //&bt BT_SEL 0 
 //&bt BT_CLR
 
-//custom shift control.  special ctrl A, and others
+//custom shift control.  quote paren actions
