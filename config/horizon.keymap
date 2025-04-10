@@ -12,24 +12,33 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/mouse_keys.dtsi>
 
-#define COPPST &hold_tap LC(V) LC(C)
 #define MS_L &mmv MOVE_LEFT
 #define MS_D &mmv MOVE_DOWN
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
+
 #define SCR_L &msc SCRL_LEFT
 #define SCR_D &msc SCRL_DOWN
 #define SCR_U &msc SCRL_UP
 #define SCR_R &msc SCRL_RIGHT
+
 #define CAD &kp LC(LA(DEL))
 #define CAT &kp LC(LA(TAB))
+
+#define COPPST &hold_tap LC(V) LC(C)
+
+#define SLCN &hold_tap LS(SEMI) SEMI
+#define QUOT &hold_tap LS(APOS) APOS
+#define SLSH &hold_tap BSLH SLASH
+#define EDEL &hold_tap DEL ESC
 
 &lt {
     tapping-term-ms = <180>;
     flavor = "tap-preferred";
 };
 
-//tap dance tap dance tap dance tap dance ctap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance 
+//tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
+//tap & double tap 
 
 / {
     behaviors {
@@ -62,6 +71,7 @@
 };
 
 //custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap custom hold tap
+//tap and hold
 
 / {
 behaviors {
@@ -96,6 +106,15 @@ macros {
             = <&macro_press &kp LCTRL>
             , <&macro_tap &kp C &kp L &kp V &kp A &kp C>
             , <&macro_release &kp LCTRL>
+            ;
+    };
+
+    dashm: dashm {
+        label = "dashm";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>
             ;
     };
 
@@ -144,11 +163,11 @@ macros {
     keymap {
         compatible = "zmk,keymap";
 
-        0 { //needs long press for scln, quot, slsh
+        0 { //needs long press for scln, quot, slsh, make an esc/del
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-                &kp LCTRL  &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp APOS
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      &kp DEL    &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp ENTER
+                &kp LCTRL  &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       QUOT
+                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    SLSH       &kp ENTER
                 &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &to 1     &none      &none      &none      &none      &none
             >;
         };
@@ -166,25 +185,25 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            SCR_U      &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            SCR_D      &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
-        3 { //numpad & f-row, need dashm
+        3 { //numpad & f-row, done
             bindings = <
                 &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                           &trans     &kp N7     &kp N8     &kp N9     &kp MINUS  &trans
                 &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                          &trans     &kp N4     &kp N5     &kp N6     &kp PLUS   &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
+                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N0     &kp N0     &trans     &trans     &trans     &trans     &trans     
             >;
         };
 
-        4 { //symbols, need lpar, rpar, dashm
+        4 { //symbols, need lpar, rpar
             bindings = <
                 CAT        &trans     &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &trans     &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
+                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
@@ -200,8 +219,8 @@ macros {
     };
 };
 
-//&kp SLCK
-//&kp CLCK
+//double check combos like unds, reset
+//check bt and power stuff
 //&bt BT_NXT   
 //&soft_off
 //&kp K_VOL_DN 
