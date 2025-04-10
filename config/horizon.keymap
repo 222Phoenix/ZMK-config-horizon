@@ -28,7 +28,7 @@
 #define COPPST &hold_tap LC(V) LC(C)
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define QUOT   &hold_tap LS(APOS) APOS
-#define SLSH   &hold_tap BSLH SLASH
+#define SLSH   &hold_tap QMARK SLASH
 #define EDEL   &hold_tap DEL ESC
 #define SENT   &hold_tap LSHFT ENTER
 
@@ -110,6 +110,12 @@ behaviors {
             bindings = <QUOT>, <&quotm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        slsh: slsh {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <BSLH>, <&slshm>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };        
 
     };
 };
@@ -141,9 +147,16 @@ macros {
         #binding-cells = <0>;
         bindings
             = <&macro_press &kp LSFT>,
-              <&macro_tap &kp APOS &kp APOS &kp LEFT &kp LEFT>,
+              <&macro_tap &kp LS(APOS) &kp LS(APOS) &kp LEFT &kp LEFT>,
               <&macro_release &kp LSFT>;
-    };    
+    };
+    slshm: slshm {
+        label = "slshm";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &kp SLASH>;
+    };            
 
   };
 };
@@ -230,8 +243,25 @@ macros {
             bindings = <&macro_press &kp LCTRL>,
              <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
              <&macro_release &kp LCTRL>;
-        };  
+        };
+        combo_parn {
+            timeout-ms = <175>;
+            key-positions = <2 11>;
+            bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+        };
 
+    };
+};
+
+//conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers 
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <3 4>;
+            then-layer = <5>;
+        };
     };
 };
 
@@ -245,8 +275,8 @@ macros {
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LCTRL  &ctrla     &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    SLSH       SENT
-                &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &to 1     &none      &none      &none      &none      &none
+                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
+                &kp K_VOL_DN &kp LGUI &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 2 SPACE &to 2     &none      &none      &none      &none      &kp K_VOL_UP
             >;
         };
 
@@ -288,8 +318,8 @@ macros {
 
         5 { //blank, not used, done
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans &out OUT_BLE &out OUT_USB &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
@@ -297,13 +327,4 @@ macros {
     };
 };
 
-
-//check bt and power stuff
-//&bt BT_NXT   
-//&soft_off
-//&kp K_VOL_DN 
-//&kp K_VOL_UP
-//&bt BT_SEL 0 
-//&bt BT_CLR
-
-//custom shift control.  quote paren actions
+//input processors to fine tune mousekeys, https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
