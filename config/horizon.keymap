@@ -26,11 +26,11 @@
 #define CAT &kp LC(LA(TAB))
 
 #define COPPST &hold_tap LC(V) LC(C)
-
-#define SLCN &hold_tap LS(SEMI) SEMI
-#define QUOT &hold_tap LS(APOS) APOS
-#define SLSH &hold_tap BSLH SLASH
-#define EDEL &hold_tap DEL ESC
+#define SLCN   &hold_tap LS(SEMI) SEMI
+#define QUOT   &hold_tap LS(APOS) APOS
+#define SLSH   &hold_tap BSLH SLASH
+#define EDEL   &hold_tap DEL ESC
+#define SENT   &hold_tap LSHFT ENTER
 
 &lt {
     tapping-term-ms = <180>;
@@ -40,7 +40,7 @@
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
 //tap & double tap 
 
-/ {
+/ { //done
     behaviors {
         tdltb: tap_dance_ltb {                                 //left tab
             compatible = "zmk,behavior-tap-dance";
@@ -93,6 +93,20 @@ behaviors {
  };
 };
 
+//mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod
+//custom shift ctrl behavior
+
+/ {
+    behaviors {
+        ctrla: ctrla {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp A>, <&kp LC(A)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+    };
+};
+
 //macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros macros 
 
 / {
@@ -103,19 +117,16 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_press &kp LCTRL>
-            , <&macro_tap &kp C &kp L &kp V &kp A &kp C>
-            , <&macro_release &kp LCTRL>
-            ;
+            = <&macro_press &kp LCTRL>,
+              <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
+              <&macro_release &kp LCTRL>;
     };
-
     dashm: dashm {
         label = "dashm";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>
-            ;
+            = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>;
     };
 
   };
@@ -124,34 +135,85 @@ macros {
 //combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos 
 
 / {
-    combos {
+    combos { //done
         compatible = "zmk,combos";
 
         combo_pgdn {
             timeout-ms = <175>;
-            key-positions = <4 5>;
+            key-positions = <34 35>;
             bindings = <&kp PG_DN>;
         };
         combo_esc {
             timeout-ms = <175>;
-            key-positions = <5 6>;
+            key-positions = <35 36>;
             bindings = <&kp ESC>;
         };
+        combo_esc2 {
+            timeout-ms = <175>;
+            key-positions = <16 45>;
+            bindings = <&kp ESC>;
+        };        
         combo_pgup {
             timeout-ms = <175>;
-            key-positions = <6 7>;
+            key-positions = <36 37>;
             bindings = <&kp PG_UP>;
         };
         combo_reset {
             timeout-ms = <175>;
-            key-positions = <4 7>;
+            key-positions = <1 12>;
             bindings = <&bootloader>;
         }; 
-
         combo_mute {
             timeout-ms = <175>;
+            key-positions = <45 46>;
+            bindings = <&kp C_MUTE>;
+        };
+        combo_under {
+            timeout-ms = <175>;
+            key-positions = <21 22>;
+            bindings = <&kp UNDER>;
+        };  
+        combo_cbspc {
+            timeout-ms = <175>;
+            key-positions = <11 12>;
+            bindings = <&kp LC(BSPC)>;
+        };        
+        combo_del {
+            timeout-ms = <175>;
+            key-positions = <17 18>;
+            bindings = <&kp DEL>;
+        };     
+        combo_ctrlw {
+            timeout-ms = <175>;
+            key-positions = <2 3>;
+            bindings = <&kp LC(W)>;
+        };             
+        combo_find {
+            timeout-ms = <175>;
+            key-positions = <16 17>;
+            bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
+        };         
+        combo_cat {
+            timeout-ms = <175>;
             key-positions = <1 2>;
-            bindings = <&kp PSCRN>;
+            bindings = <&kp LC(LA(TAB))>;
+        };
+        combo_copy {
+            timeout-ms = <175>;
+            key-positions = <27 28>;
+            bindings = <&kp LC(C)>;
+        };
+        combo_paste {
+            timeout-ms = <175>;
+            key-positions = <28 29>;
+            bindings = <&kp LC(V)>;
+        };                                  
+        combo_cpys {
+            timeout-ms = <175>;
+            key-positions = <27 28 29>;
+            bindings = <&macro_press &kp LCTRL>,
+             <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
+             <&macro_release &kp LCTRL>;
         };  
 
     };
@@ -163,11 +225,11 @@ macros {
     keymap {
         compatible = "zmk,keymap";
 
-        0 { //needs long press for scln, quot, slsh, make an esc/del
+        0 { //done
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-                &kp LCTRL  &kp A      &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       QUOT
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    SLSH       &kp ENTER
+                &kp LCTRL  &ctrla     &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       QUOT
+                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    SLSH       SENT
                 &none      &kp LGUI   &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 1 SPACE &to 1     &none      &none      &none      &none      &none
             >;
         };
@@ -199,9 +261,9 @@ macros {
             >;
         };
 
-        4 { //symbols, need lpar, rpar
+        4 { //symbols, done
             bindings = <
-                CAT        &trans     &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &trans     &trans
+                CAT        &kp LPAR   &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &kp RPAR   &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
@@ -219,7 +281,7 @@ macros {
     };
 };
 
-//double check combos like unds, reset
+
 //check bt and power stuff
 //&bt BT_NXT   
 //&soft_off
@@ -227,3 +289,5 @@ macros {
 //&kp K_VOL_UP
 //&bt BT_SEL 0 
 //&bt BT_CLR
+
+//custom shift control.  special ctrl A, and others
