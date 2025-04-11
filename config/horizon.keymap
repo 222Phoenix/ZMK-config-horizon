@@ -27,7 +27,7 @@
 
 #define COPPST &hold_tap LC(V) LC(C)
 #define SLCN   &hold_tap LS(SEMI) SEMI
-#define QUOT   &hold_tap LS(APOS) APOS
+#define QUOTE  &hold_tap LS(APOS) APOS
 #define SLSH   &hold_tap QMARK SLASH
 #define EDEL   &hold_tap DEL ESC
 #define SENT   &hold_tap LSHFT ENTER
@@ -78,21 +78,21 @@
 //tap and hold
 
 / {
-behaviors {
-  hold_tap: hold_tap {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    tapping-term-ms = <300>;
-    quick-tap-ms = <0>;
-    bindings = <&kp>, <&kp>;
-  };
-  hold_tap_clk: hold_tap_clk {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    tapping-term-ms = <300>;
-    quick-tap-ms = <0>;
-    bindings = <&mo>, <&mkp>;
-  };
+    behaviors {
+        hold_tap: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
+        hold_tap_clk: hold_tap_clk {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&mo>, <&mkp>;
+        };
 
  };
 };
@@ -111,7 +111,7 @@ behaviors {
         quot: quot {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <QUOT>, <&quotm>;
+            bindings = <QUOTE>, <&quotm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         slsh: slsh {
@@ -253,12 +253,6 @@ macros {
             key-positions = <2 11>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
-        combo_soft_off_jkl {
-            timeout-ms = <175>;
-            key-positions = <20 21 22>;
-            bindings = <&hw_soft_off>;
-    };
-
 
     };
 };
