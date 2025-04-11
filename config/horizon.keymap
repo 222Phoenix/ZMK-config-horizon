@@ -64,11 +64,17 @@
             tapping-term-ms = <300>;
             bindings = <&hold_tap_clk 1 MCLK>, <&kp LC(LS(T))>;
         };
-        tdrck: tap_dance_rck {                                 //rclick
+        tdlpar: tap_dance_lpar {                                //lpar
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&hold_tap_clk 1 RCLK>, <&kp LC(W)>;
+            bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>, <&kp LT>;
+        };
+        tdrpar: tap_dance_rpar {                                //rpar
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&kp RPAR>, <&kp RBRC>, <&kp RBKT>, <&kp GT>;
         };
 
     };
@@ -107,6 +113,7 @@
             #binding-cells = <0>;
             bindings = <&kp A>, <&ctrla>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
+            keep-mods = <(MOD_LCTL)>;
         };
         quot: quot {
             compatible = "zmk,behavior-mod-morph";
@@ -151,15 +158,16 @@ macros {
         #binding-cells = <0>;
         bindings
             = <&macro_press &kp LSFT>,
-              <&macro_tap &kp LS(APOS) &kp LS(APOS) &kp LEFT &kp LEFT>,
-              <&macro_release &kp LSFT>;
+              <&macro_tap &kp LS(APOS) &kp LS(APOS)>,
+              <&macro_release &kp LSFT>,
+              <&macro_tap &kp LEFT>;
     };
     slshm: slshm {
         label = "slshm";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &kp SLASH>;
+            = <&macro_tap &kp BSLH>;
     };            
     ctrla: ctrla {
         label = "ctrla";
@@ -322,7 +330,7 @@ macros {
 
         4 { //symbols, done
             bindings = <
-                CAT        &kp LPAR   &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &kp RPAR   &trans
+                CAT        &tdlpar    &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &tdrpar    &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
@@ -341,3 +349,11 @@ macros {
 };
 
 //input processors to fine tune mousekeys, https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
+
+//tested:
+//all mod morphs
+
+not tested
+//test all combo
+//test all macro
+//test all tap dance
