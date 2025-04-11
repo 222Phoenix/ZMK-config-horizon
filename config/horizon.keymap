@@ -253,6 +253,12 @@ macros {
             key-positions = <2 11>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
+        combo_soft_off_jkl {
+            timeout-ms = <175>;
+            key-positions = <20 21 22>;
+            bindings = <&hw_soft_off>;
+    };
+
 
     };
 };
