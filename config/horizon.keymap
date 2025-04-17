@@ -12,9 +12,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/mouse_keys.dtsi>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
-
 #define MS_L &mmv MOVE_LEFT
 #define MS_D &mmv MOVE_DOWN
 #define MS_U &mmv MOVE_UP
@@ -321,8 +318,8 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            SCR_U      &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            SCR_D      &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
