@@ -302,8 +302,8 @@ macros {
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LCTRL  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      EDEL       &kp PGUP   &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
-                &kp K_VOL_DN &kp LGUI &kp LALT   &kp LC(C)  &kp LC(V)  &mo 4      &lt 3 BSPC &lt 2 SPACE &to 2     &none      &none      &none      &none      &kp K_VOL_UP
+                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
+                &trans     &trans     &trans     &trans     &mo 4     &lt 3 BSPC  &trans     &trans    &lt 2 SPACE &tg 2      &none      &none      &none      &trans
             >;
         };
 
@@ -320,7 +320,7 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
-                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
@@ -329,8 +329,8 @@ macros {
             bindings = <
                 &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                           &trans     &kp N7     &kp N8     &kp N9     &kp MINUS  &trans
                 &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                          &trans     &kp N4     &kp N5     &kp N6     &kp PLUS   &trans
-                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N0     &kp N0     &trans     &trans     &trans     &trans     &trans     
+                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &trans     &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N0     &kp N0     &kp N0     &trans     &trans     &trans     &trans     
             >;
         };
 
@@ -338,7 +338,7 @@ macros {
             bindings = <
                 CAT        &tdlpar    &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &tdrpar    &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
-                &trans     &trans     &trans     &trans     &trans     &dashm     &dashm     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
+                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
