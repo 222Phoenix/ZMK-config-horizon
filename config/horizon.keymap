@@ -165,7 +165,7 @@ macros {
         bindings
             = <&macro_press &kp LSFT>,
               <&macro_tap &kp LS(APOS) &kp LS(APOS)>,
-              wait-ms = <50>,
+              <&macro_wait_time 100>,
               <&macro_release &kp LSFT>,
               <&macro_tap &kp LEFT>;
     };
