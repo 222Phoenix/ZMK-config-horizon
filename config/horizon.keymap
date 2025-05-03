@@ -185,6 +185,20 @@ macros {
               <&macro_release &kp LCTL>;
     }; 
 
+
+    find: find {
+        label = "find";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <40>;
+        tap-ms = <40>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp F &kp A &kp V &kp A>,
+              <&macro_release &kp LCTL>;
+    }; 
+
+
   };
 };
 
@@ -245,8 +259,7 @@ macros {
         combo_find {
             timeout-ms = <175>;
             key-positions = <15 16>;
-            //bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
-            bindings = <&quotm>;
+            bindings = <find>;
         };         
         combo_cat {
             timeout-ms = <175>;
