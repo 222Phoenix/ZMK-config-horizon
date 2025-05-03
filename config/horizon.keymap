@@ -285,6 +285,11 @@ macros {
             key-positions = <1 10>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
+        combo_soft {
+            timeout-ms = <175>;
+            key-positions = <9 10 11>;
+            bindings = <&soft_off>;
+        };
 
     };
 };
