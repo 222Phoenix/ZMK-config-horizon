@@ -145,6 +145,8 @@ macros {
         label = "copysp";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
+        wait-ms = <40>;
+	    tap-ms = <40>;
         bindings
             = <&macro_press &kp LCTRL>,
               <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
@@ -184,8 +186,6 @@ macros {
               <&macro_tap &kp A &kp C>,
               <&macro_release &kp LCTL>;
     }; 
-
-
     find: find {
         label = "find";
         compatible = "zmk,behavior-macro";
@@ -197,7 +197,6 @@ macros {
               <&macro_tap &kp F &kp A &kp V &kp A>,
               <&macro_release &kp LCTL>;
     }; 
-
 
   };
 };
@@ -279,9 +278,7 @@ macros {
         combo_cpys {
             timeout-ms = <175>;
             key-positions = <26 27 28>;
-            bindings = <&macro_press &kp LCTRL>,
-             <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
-             <&macro_release &kp LCTRL>;
+            bindings = <&copysp>;
         };
         combo_parn {
             timeout-ms = <175>;
