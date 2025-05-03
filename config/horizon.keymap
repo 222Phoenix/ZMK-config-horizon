@@ -29,7 +29,6 @@
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define QUOTE  &hold_tap LS(APOS) APOS
 #define SLSH   &hold_tap QMARK SLASH
-#define EDEL   &hold_tap DEL ESC
 #define SENT   &hold_tap LSHFT ENTER
 
 //&soft_off {
@@ -185,6 +184,21 @@ macros {
               <&macro_tap &kp A &kp C>,
               <&macro_release &kp LCTL>;
     }; 
+    find: find {
+        label = "find";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp F>,
+              <&macro_wait_time 100>,
+              <&macro_tap &kp A>,
+              <&macro_wait_time 100>,
+              <&macro_tap &kp V>,
+              <&macro_wait_time 100>,
+              <&macro_tap A>,                                      
+              <&macro_release &kp LCTL>;
+    }; 
 
   };
 };
@@ -199,22 +213,25 @@ macros {
             timeout-ms = <175>;
             key-positions = <33 34>;
             bindings = <&kp PG_DN>;
+            layers = <2>;            
         };
+        combo_pgup {
+            timeout-ms = <175>;
+            key-positions = <35 36>;
+            bindings = <&kp PG_UP>;
+            layers = <2>;            
+        };        
         combo_esc {
             timeout-ms = <175>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
+            layers = <2>;            
         };
         combo_esc2 {
             timeout-ms = <175>;
             key-positions = <15 43>;
             bindings = <&kp ESC>;
         };        
-        combo_pgup {
-            timeout-ms = <175>;
-            key-positions = <35 36>;
-            bindings = <&kp PG_UP>;
-        };
         combo_reset {
             timeout-ms = <175>;
             key-positions = <0 11>;
@@ -243,8 +260,7 @@ macros {
         combo_find {
             timeout-ms = <175>;
             key-positions = <15 16>;
-            //bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
-            bindings = <&quotm>;
+            bindings = <&find>;
         };         
         combo_cat {
             timeout-ms = <175>;
@@ -273,6 +289,11 @@ macros {
             key-positions = <1 10>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
+         combo_soft {
+            timeout-ms = <175>;
+            key-positions = <9 10 11>;
+            bindings = <&soft_off>;
+        };
 
     };
 };
@@ -300,7 +321,7 @@ macros {
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LSHFT  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
                 &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
-                &trans     &trans     &trans     &trans     &mo 4     &lt 3 BSPC  &trans     &trans    &lt 2 SPACE &tog 2     &none      &none      &none      &trans
+                &trans     &trans     &trans     &trans     &mo 4     &lt 3 BSPC  &trans     &trans    &lt 2 SPACE &tog 2     &none      &none      &none      &none
             >;
         };
 
@@ -352,11 +373,3 @@ macros {
 };
 
 //input processors to fine tune mousekeys, https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
-
-//tested:
-//all mod morphs
-
-//not tested
-//test all combo
-//test all macro
-//test all tap dance
