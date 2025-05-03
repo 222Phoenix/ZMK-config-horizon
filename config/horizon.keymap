@@ -30,7 +30,7 @@
 #define QUOTE  &hold_tap LS(APOS) APOS
 #define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
-#define LYR4   &hold_tap &kp &mo 4 &to 0
+#define LYR4   &hold_tap &mo 4 &to 0
 
 //&soft_off {
 //    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
