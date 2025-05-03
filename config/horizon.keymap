@@ -259,7 +259,7 @@ macros {
         combo_find {
             timeout-ms = <175>;
             key-positions = <15 16>;
-            bindings = <find>;
+            bindings = <&find>;
         };         
         combo_cat {
             timeout-ms = <175>;
