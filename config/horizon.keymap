@@ -33,7 +33,7 @@
 #define SENT   &hold_tap LSHFT ENTER
 
 &soft_off {
-    hold-time-ms = <2000>; // Only turn off it the key is held for 2 seconds or longer.
+    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
 };
 
 &lt {
@@ -207,7 +207,7 @@ macros {
         };
         combo_esc2 {
             timeout-ms = <175>;
-            key-positions = <15 44>;
+            key-positions = <15 30>;
             bindings = <&kp ESC>;
         };        
         combo_pgup {
@@ -220,11 +220,6 @@ macros {
             key-positions = <0 11>;
             bindings = <&bootloader>;
         }; 
-        combo_mute {
-            timeout-ms = <175>;
-            key-positions = <44 45>;
-            bindings = <&kp C_MUTE>;
-        };
         combo_under {
             timeout-ms = <175>;
             key-positions = <20 21>;
@@ -248,7 +243,8 @@ macros {
         combo_find {
             timeout-ms = <175>;
             key-positions = <15 16>;
-            bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
+            //bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
+            bindings = <&quotm>;
         };         
         combo_cat {
             timeout-ms = <175>;
@@ -321,7 +317,7 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
-                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &trans     &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
