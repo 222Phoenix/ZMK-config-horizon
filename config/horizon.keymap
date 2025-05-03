@@ -196,84 +196,84 @@ macros {
 
         combo_pgdn {
             timeout-ms = <175>;
-            key-positions = <34 35>;
+            key-positions = <33 34>;
             bindings = <&kp PG_DN>;
         };
         combo_esc {
             timeout-ms = <175>;
-            key-positions = <35 36>;
+            key-positions = <34 35>;
             bindings = <&kp ESC>;
         };
         combo_esc2 {
             timeout-ms = <175>;
-            key-positions = <16 45>;
+            key-positions = <15 44>;
             bindings = <&kp ESC>;
         };        
         combo_pgup {
             timeout-ms = <175>;
-            key-positions = <36 37>;
+            key-positions = <35 36>;
             bindings = <&kp PG_UP>;
         };
         combo_reset {
             timeout-ms = <175>;
-            key-positions = <1 12>;
+            key-positions = <0 11>;
             bindings = <&bootloader>;
         }; 
         combo_mute {
             timeout-ms = <175>;
-            key-positions = <45 46>;
+            key-positions = <44 45>;
             bindings = <&kp C_MUTE>;
         };
         combo_under {
             timeout-ms = <175>;
-            key-positions = <21 22>;
+            key-positions = <20 21>;
             bindings = <&kp UNDER>;
         };  
         combo_cbspc {
             timeout-ms = <175>;
-            key-positions = <11 12>;
+            key-positions = <10 11>;
             bindings = <&kp LC(BSPC)>;
         };        
         combo_del {
             timeout-ms = <175>;
-            key-positions = <17 18>;
+            key-positions = <16 17>;
             bindings = <&kp DEL>;
         };     
         combo_ctrlw {
             timeout-ms = <175>;
-            key-positions = <2 3>;
+            key-positions = <1 2>;
             bindings = <&kp LC(W)>;
         };             
         combo_find {
             timeout-ms = <175>;
-            key-positions = <16 17>;
+            key-positions = <15 16>;
             bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
         };         
         combo_cat {
             timeout-ms = <175>;
-            key-positions = <1 2>;
+            key-positions = <0 1>;
             bindings = <&kp LC(LA(TAB))>;
         };
         combo_copy {
             timeout-ms = <175>;
-            key-positions = <27 28>;
+            key-positions = <26 27>;
             bindings = <&kp LC(C)>;
         };
         combo_paste {
             timeout-ms = <175>;
-            key-positions = <28 29>;
+            key-positions = <27 28>;
             bindings = <&kp LC(V)>;
         };                                  
         combo_cpys {
             timeout-ms = <175>;
-            key-positions = <27 28 29>;
+            key-positions = <26 27 28>;
             bindings = <&macro_press &kp LCTRL>,
              <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
              <&macro_release &kp LCTRL>;
         };
         combo_parn {
             timeout-ms = <175>;
-            key-positions = <2 11>;
+            key-positions = <1 10>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
 
