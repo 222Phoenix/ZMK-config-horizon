@@ -276,7 +276,7 @@ macros {
         combo_soft {
             timeout-ms = <175>;
             key-positions = <9 10 11>;
-            bindings = <&so>;
+            bindings = <&soft_off>;
         };        
 
 
