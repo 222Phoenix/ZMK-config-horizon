@@ -29,12 +29,12 @@
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define QUOTE  &hold_tap LS(APOS) APOS
 #define SLSH   &hold_tap QMARK SLASH
+#define EDEL   &hold_tap DEL ESC
 #define SENT   &hold_tap LSHFT ENTER
-#define LYR4   &hold_tap &mo 4 &to 0
 
 //&soft_off {
 //    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
-//j};
+//};
 
 &lt {
     tapping-term-ms = <180>;
@@ -185,15 +185,6 @@ macros {
               <&macro_tap &kp A &kp C>,
               <&macro_release &kp LCTL>;
     }; 
-    find: find {
-        label = "find";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp F &kp A &kp V &kp A>,
-              <&macro_release &kp LCTL>;
-    }; 
 
   };
 };
@@ -208,25 +199,22 @@ macros {
             timeout-ms = <175>;
             key-positions = <33 34>;
             bindings = <&kp PG_DN>;
-            layers = <2>;
-        }; 
+        };
         combo_esc {
             timeout-ms = <175>;
             key-positions = <34 35>;
             bindings = <&kp ESC>;
-            layers = <2>;
         };
-        combo_pgup {
-            timeout-ms = <175>;
-            key-positions = <35 36>;
-            bindings = <&kp PG_UP>;
-            layers = <2>;            
-        };        
         combo_esc2 {
             timeout-ms = <175>;
             key-positions = <15 43>;
             bindings = <&kp ESC>;
         };        
+        combo_pgup {
+            timeout-ms = <175>;
+            key-positions = <35 36>;
+            bindings = <&kp PG_UP>;
+        };
         combo_reset {
             timeout-ms = <175>;
             key-positions = <0 11>;
@@ -255,7 +243,8 @@ macros {
         combo_find {
             timeout-ms = <175>;
             key-positions = <15 16>;
-            bindings = <&find>;
+            //bindings = <&macro_tap &kp LC(F) &kp LC(A) &kp LC(V) &kp LC(A)>;
+            bindings = <&quotm>;
         };         
         combo_cat {
             timeout-ms = <175>;
@@ -284,12 +273,6 @@ macros {
             key-positions = <1 10>;
             bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
         };
-        combo_soft {
-            timeout-ms = <175>;
-            key-positions = <9 10 11>;
-            bindings = <&soft_off>;
-        };        
-
 
     };
 };
@@ -300,7 +283,7 @@ macros {
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
-            if-layers = <2 3>;
+            if-layers = <3 4>;
             then-layer = <5>;
         };
     };
@@ -317,7 +300,7 @@ macros {
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LSHFT  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
                 &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
-                &trans     &trans     &trans     &trans     LYR4      &lt 3 BSPC  &trans     &trans    &lt 2 SPACE &to 2      &none      &none      &none      &none
+                &trans     &trans     &trans     &trans     &mo 4     &lt 3 BSPC  &trans     &trans    &lt 2 SPACE &tog 2     &none      &none      &none      &trans
             >;
         };
 
