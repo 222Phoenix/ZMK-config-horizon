@@ -118,12 +118,13 @@
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
-
-&keydown_up {
-    compatible = "zmk,behavior-macro";
-    label = "KEY_DOWN_UP";
-    bindings = <&macro_press &kp A>, <&macro_press &kp B>, <&macro_pause_for_release>, <&macro_release &kp C>;
-};
+        keydown_up: keydown_up {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&macro_press &kp>, <&macro_press &kp>, <&macro_pause_for_release>, <&macro_release &kp>;
+        };
 
  };
 };
@@ -217,13 +218,9 @@ macros {
               <&macro_tap &kp F &kp A &kp V &kp A>,
               <&macro_release &kp LCTL>;
     }; 
-    mid2: mid2 {
-        label = "mid2";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&keydown_up;
-    }; 
+
+
+
 
   };
 };
@@ -359,7 +356,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &keydown_up LC(C), &kp CAPS, LC(V), &kp CAPS     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
