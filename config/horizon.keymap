@@ -31,7 +31,7 @@
 #define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
 
-#define mid2 &keydown_up &kp CAPS, &kp CAPS
+#define MID2   &keydown_up CAPS CAPS
 
 //&soft_off {
 //    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
@@ -364,7 +364,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     mid2       &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     MID2       &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
