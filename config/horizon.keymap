@@ -31,7 +31,7 @@
 #define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
 
-#define MID2   &keydown_up A B C
+#define MID2   &keydown_up A B
 
 //&soft_off {
 //    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
@@ -125,7 +125,7 @@
             #binding-cells = <3>;
             tapping-term-ms = <300>;
             quick-tap-ms = <0>;
-            bindings = <&macro_press &kp>, <&macro_press &kp>, <&macro_pause_for_release>, <&macro_release &kp>;
+            bindings = <&macro_press &kp>, <&macro_pause_for_release>, <&macro_release &kp>;
         };
 
  };
