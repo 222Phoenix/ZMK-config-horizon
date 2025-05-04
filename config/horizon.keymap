@@ -220,9 +220,15 @@ macros {
               <&macro_tap &kp F &kp A &kp V &kp A>,
               <&macro_release &kp LCTL>;
     }; 
-
-
-
+    parn: parn {
+        label = "parn";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <40>;
+        tap-ms = <40>;
+        bindings
+            = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+    }; 
 
   };
 };
@@ -309,7 +315,7 @@ macros {
         combo_parn {
             timeout-ms = <175>;
             key-positions = <1 10>;
-            bindings = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+            bindings = <&parn>;
         };
         combo_soft {
             timeout-ms = <175>;
