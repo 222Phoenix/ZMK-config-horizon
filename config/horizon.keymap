@@ -31,8 +31,6 @@
 #define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
 
-#define ACAP   &hold_tap CAPS A
-
 #define LYR4 &mo_to 4 0 
 #define LYR3 &lyr3_bspc 3 0
 #define vold &kp C_VOL_DN 
@@ -123,39 +121,10 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>; 
             bindings = <&mo>, <&l3>;
-            }; 
-
+            };
 
   };
 }; 
-
-
-/ {
-    behaviors {
-  caps_j: hold_tap_caps_j {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    flavor = "tap-preferred";  // Or another flavor like "tap-unless-interrupted" depending on your preference
-    tapping-term-ms = <200>; // Adjust as needed
-    bindings = <&caps_press>, <&j_tap>; 
-  };
-
-  caps_press: key_press_caps_lock {
-    compatible = "zmk,behavior-key-press";
-    #binding-cells = <0>;
-    bindings = <CAPS>;
-  };
-
-  j_tap: key_press_j {
-     compatible = "zmk,behavior-key-press";
-     #binding-cells = <0>;
-    bindings = <J>;
-  };
-};
-};
-
-
-
 
 //mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod
 //normal, with mod
@@ -189,7 +158,6 @@
 
 / {
 macros {
-
     copysp: copysp {
         label = "copysp";
         compatible = "zmk,behavior-macro";
@@ -272,7 +240,6 @@ macros {
 / {
     combos { //done
         compatible = "zmk,combos";
-
         combo_pgdn {
             timeout-ms = <175>;
             key-positions = <33 34>;
@@ -356,7 +323,6 @@ macros {
             key-positions = <9 10 11>;
             bindings = <&soft_off>;
         };
-
         combo_mute {
             timeout-ms = <175>;
             key-positions = <42 47>;
@@ -404,7 +370,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &caps_j       &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
