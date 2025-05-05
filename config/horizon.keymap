@@ -32,9 +32,17 @@
 #define SENT   &hold_tap LSHFT ENTER
 
 #define LYR4 &mo_to 4 0 
-#define LYR3 &lyr3_bspc 3 0
+#define LYR3 &mo_m 3 0
 #define vold &kp C_VOL_DN 
 #define volu &kp C_VOL_UP
+#define BTNXT &bt BT_NXT
+#define BTCLR &bt BT_CLR
+#define BTCLRA &bt BT_CLR_ALL
+#define BTBLE &out OUT_BLE 
+#define BTUSB &out OUT_USB
+#define BT1 &bt BT_SEL 1 
+#define BT2 &bt BT_SEL 2 
+#define BT3 &bt BT_SEL 3
 
 //&soft_off {
 //    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
@@ -116,7 +124,7 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
-        lyr3_bspc: lyr3_bspc { //hold mo, tap macro
+        mo_m: mo_m { //hold mo, tap macro
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>; 
@@ -382,7 +390,7 @@ macros {
                 &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                           &trans     &kp N7     &kp N8     &kp N9     &kp MINUS  &trans
                 &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12                          &trans     &kp N4     &kp N5     &kp N6     &kp PLUS   &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &trans     &kp N1     &kp N2     &kp N3     &kp EQUAL  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N0     &kp N0     &trans     &trans     &trans     &trans     
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &kp N0     &trans     &trans     &trans     &trans     
             >;
         };
 
@@ -397,9 +405,9 @@ macros {
 
         5 { //BT config, done
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &bt BT_NXT &out OUT_BLE &out OUT_USB &trans     &trans     &soft_off
-                &trans     &trans     &trans     &trans     &trans     &trans                           &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans &trans
-                &trans     &trans     vold       volu       &trans     &trans     &trans     &trans     &bt BT_CLR_ALL &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           BTNXT      BTBLE      BTUSB      &trans     &trans     &soft_off
+                &trans     &trans     &trans     &trans     &trans     &trans                           BTCLR      BT1        BT2        BT3        &trans     &trans
+                &trans     &trans     vold       volu       &trans     &trans     &trans     &trans     BTCLRA     &trans     &trans     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
