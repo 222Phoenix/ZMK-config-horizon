@@ -250,7 +250,7 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <LC(C)>, 
+            = <&kp LC(C)>, 
               <&kp CAPS>;
     };  
     mup: mup {
@@ -258,7 +258,7 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <LC(V)>, 
+            = <&kp LC(V)>, 
               <&kp CAPS>;
     }; 
 
