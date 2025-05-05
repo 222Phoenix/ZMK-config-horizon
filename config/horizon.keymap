@@ -405,9 +405,9 @@ macros {
 
         5 { //BT config, done
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           BTNXT      BTBLE      BTUSB      &trans     &trans     &soft_off
-                &trans     &trans     &trans     &trans     &trans     &trans                           BTCLR      BT1        BT2        BT3        &trans     &trans
-                &trans     &trans     vold       volu       &trans     &trans     &trans     &trans     BTCLRA     &trans     &trans     &trans     &trans     &trans
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     BTNXT      BTBLE      BTUSB      &trans     &soft_off
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     BT1        BT2        BT3        &trans     &trans
+                &trans     &trans     vold       volu       &trans     &trans     &trans     &trans     &trans     BTCLR      BTCLRA     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
