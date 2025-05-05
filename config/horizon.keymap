@@ -111,7 +111,6 @@
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
-
         mo_to: behavior_mo_to { //hold mo, tap to
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -120,14 +119,41 @@
             bindings = <&mo>, <&to>;
         };
         lyr3_bspc: lyr3_bspc { //hold mo, tap macro
-          compatible = "zmk,behavior-hold-tap";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>; 
-          bindings = <&mo>, <&l3>;
-          };
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>; 
+            bindings = <&mo>, <&l3>;
+            }; 
+
 
   };
 }; 
+
+
+&behaviors {
+  caps_j: hold_tap_caps_j {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    flavor = "tap-preferred";  // Or another flavor like "tap-unless-interrupted" depending on your preference
+    tapping-term-ms = <200>; // Adjust as needed
+    bindings = <&caps_press>, <&j_tap>; 
+  };
+
+  caps_press: key_press_caps_lock {
+    compatible = "zmk,behavior-key-press";
+    #binding-cells = <0>;
+    keycode = <CAPS_LOCK>;
+  };
+
+  j_tap: key_press_j {
+     compatible = "zmk,behavior-key-press";
+     #binding-cells = <0>;
+     keycode = <J>;
+  };
+};
+
+
+
 
 //mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod
 //normal, with mod
@@ -341,7 +367,7 @@ macros {
 //conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers conditional layers 
 
 / {
-    conditional_layers {
+    conditional_layers { //tri layer
         compatible = "zmk,conditional-layers";
         tri_layer {
             if-layers = <2 3>;
@@ -376,7 +402,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     ACAP       &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &caps_j       &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
