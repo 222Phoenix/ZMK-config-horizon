@@ -44,8 +44,8 @@
 #define BT2 &bt BT_SEL 2 
 #define BT3 &bt BT_SEL 3
 
-//&soft_off {
-//    hold-time-ms = <500>; // Only turn off it the key is held for 0.5 seconds or longer.
+//&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
+//    hold-time-ms = <500>; 
 //};
 
 &lt {
@@ -56,7 +56,7 @@
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
 //tap & double tap 
 
-/ { //done
+/ {
     behaviors {
         tdltb: tap_dance_ltb {                                 //left tab
             compatible = "zmk,behavior-tap-dance";
@@ -106,14 +106,14 @@
         hold_tap: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
         hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
@@ -246,7 +246,7 @@ macros {
 //combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos combos 
 
 / {
-    combos { //done
+    combos {
         compatible = "zmk,combos";
         combo_pgdn {
             timeout-ms = <175>;
@@ -381,7 +381,7 @@ macros {
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &mo 3      &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
