@@ -130,12 +130,13 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        capslock_hold: capslock_hold {
+        ctrl_cv_caps: ctrl_cv_caps {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <0>;
-            bindings = <&test>, <LC(C)>;
+            bindings = <&macro_ctrl_c_capslock &macro_ctrl_v_capslockoff>;
+            retro-tap;
         };
 
  };
@@ -239,7 +240,6 @@ macros {
         bindings
             = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
     }; 
-
     l3: l3 {
         label = "l3";
         compatible = "zmk,behavior-macro";
@@ -249,15 +249,20 @@ macros {
               <&kp BSPC>;
     }; 
 
-    test: test {
-        label = "test";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <LC(V)>, 
-              <&kp CAPS>;
-    }; 
+    macro_ctrl_c_capslock: macro_ctrl_c_capslock {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <50>;
+      bindings = <&kp LCTRL &kp C &kp CAPS_LOCK>;
+    };
 
+    macro_ctrl_v_capslockoff: macro_ctrl_v_capslockoff {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      wait-ms = <0>;
+      tap-ms = <50>;
+      bindings = <&kp LCTRL &kp V &kp CAPS_LOCK>;
 
   };
 };
@@ -399,7 +404,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST       &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &ctrl_cv_caps       &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
