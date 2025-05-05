@@ -143,13 +143,13 @@
   caps_press: key_press_caps_lock {
     compatible = "zmk,behavior-key-press";
     #binding-cells = <0>;
-    keycode = <CAPS_LOCK>;
+    bindings = <CAPS>;
   };
 
   j_tap: key_press_j {
      compatible = "zmk,behavior-key-press";
      #binding-cells = <0>;
-     keycode = <J>;
+    bindings = <J>;
   };
 };
 };
