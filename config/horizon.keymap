@@ -31,6 +31,8 @@
 #define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
 
+#define ACAP   &hold_tap CAPS A
+
 #define LYR4 &mo_to 4 0 
 #define LYR3 &lyr3_bspc 3 0
 #define vold &kp C_VOL_DN 
@@ -43,33 +45,6 @@
 &lt {
     tapping-term-ms = <180>;
     flavor = "tap-preferred";
-};
-
-//mo_to, momentary 3 and 4, tap to get back to 0
-
-/ {
-    behaviors {
-        mo_to: behavior_mo_to {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&to>;
-        };
-    };
-};
-
-//mo and macro, so that tap does to(0) and bspc
-
-/ {
-    behaviors {
-        lyr3_bspc: lyr3_bspc {
-          compatible = "zmk,behavior-hold-tap";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>; 
-          bindings = <&mo>, <&l3>;
-          };
-     };
 };
 
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
@@ -121,7 +96,7 @@
 //hold and tap
 
 / {
-    behaviors {
+    behaviors { //hold tap for regular keycodes
         hold_tap: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -129,7 +104,7 @@
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
-        hold_tap_clk: hold_tap_clk {
+        hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
@@ -137,17 +112,22 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        ctrl_cv_caps: ctrl_cv_caps {
+        mo_to: behavior_mo_to { //hold mo, tap to
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <0>;
-//            bindings = <&c_cap &v_cap>;
-            bindings = <&macro &macro>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&to>;
         };
+        lyr3_bspc: lyr3_bspc { //hold mo, tap macro
+          compatible = "zmk,behavior-hold-tap";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>; 
+          bindings = <&mo>, <&l3>;
+          };
 
- };
-};
+  };
+}; 
 
 //mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod morph mod
 //normal, with mod
@@ -254,24 +234,6 @@ macros {
         bindings
             = <&to 0>, 
               <&kp BSPC>;
-    }; 
-
-    c_cap: c_cap {
-        label = "c_cap";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <LC(C)>, 
-              <&kp CAPS>;
-    }; 
-
-    v_cap: v_cap {
-        label = "v_cap";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <LC(V)>, 
-              <&kp CAPS>;
     }; 
 
   };
@@ -414,7 +376,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &ctrl_cv_caps c_cap v_cap       &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     ACAP       &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
