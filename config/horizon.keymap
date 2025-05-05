@@ -130,7 +130,8 @@
 }; 
 
 
-&behaviors {
+/ {
+    behaviors {
   caps_j: hold_tap_caps_j {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
@@ -150,6 +151,7 @@
      #binding-cells = <0>;
      keycode = <J>;
   };
+};
 };
 
 
