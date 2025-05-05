@@ -130,6 +130,12 @@
             tapping-term-ms = <200>; 
             bindings = <&mo>, <&l3>;
             };
+        m_m: m_m { //keydown macro, keyup macro
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>; 
+            bindings = <&mdown>, <&mup>;
+            };            
 
   };
 }; 
@@ -238,6 +244,22 @@ macros {
         bindings
             = <&to 0>, 
               <&kp BSPC>;
+    }; 
+    mdown: mdown {
+        label = "mdown";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <LC(C)>, 
+              <&kp CAPS>;
+    };  
+    mup: mup {
+        label = "mup";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <LC(V)>, 
+              <&kp CAPS>;
     }; 
 
   };
@@ -378,7 +400,7 @@ macros {
 
         2 { //mousekeys, done
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     &m_m       &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
