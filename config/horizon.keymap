@@ -54,15 +54,17 @@
     };
 };
 
+//mo and macro, so that tap does to(0) and bspc
+
 / {
-  behaviors {
-    lyr3_bspc: lyr3_bspc {
-      compatible = "zmk,behavior-hold-tap";
-      #binding-cells = <2>;
-      tapping-term-ms = <200>; 
-      bindings = <&mo>, <&l3>;
-    };
-  };
+    behaviors {
+        lyr3_bspc: lyr3_bspc {
+          compatible = "zmk,behavior-hold-tap";
+          #binding-cells = <2>;
+          tapping-term-ms = <200>; 
+          bindings = <&mo>, <&l3>;
+          };
+     };
 };
 
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
@@ -135,7 +137,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <0>;
-            bindings = <&macro_ctrl_c_capslock &macro_ctrl_v_capslockoff>;
+            bindings = <&c_cap &v_cap>;
             retro-tap;
         };
 
@@ -249,20 +251,23 @@ macros {
               <&kp BSPC>;
     }; 
 
-    macro_ctrl_c_capslock: macro_ctrl_c_capslock {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <50>;
-      bindings = <&kp LCTRL &kp C &kp CAPS_LOCK>;
-    };
+    c_cap: c_cap {
+        label = "c_cap";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <LC(C)>, 
+              <&kp CAPS>;
+    }; 
 
-    macro_ctrl_v_capslockoff: macro_ctrl_v_capslockoff {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      wait-ms = <0>;
-      tap-ms = <50>;
-      bindings = <&kp LCTRL &kp V &kp CAPS_LOCK>;
+    v_cap: v_cap {
+        label = "v_cap";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <LC(V)>, 
+              <&kp CAPS>;
+    }; 
 
   };
 };
