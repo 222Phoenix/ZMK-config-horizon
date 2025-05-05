@@ -55,15 +55,14 @@
 };
 
 / {
-    behaviors {
-        ltm: behavior_ltm {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&macro>;
-        };
+  behaviors {
+    lyr3_bspc: lyr3_bspc {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>; 
+      bindings = <&mo 3 &kp BSPC &to 1>;
     };
+  };
 };
 
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
@@ -240,16 +239,6 @@ macros {
             = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
     }; 
 
-    lyr3: lyr3 {
-        label = "parn";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <40>;
-        tap-ms = <40>;
-        bindings
-            = <&to 3 &kp BSPC>;
-    }; 
-
   };
 };
 
@@ -369,7 +358,7 @@ macros {
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
                 &kp LSHFT  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
                 &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
-                &trans     &trans     &trans     &trans    &mo_to 4 0 &ltm 3 lyr3  &trans     &trans    &lt 2 SPACE &to 2      &none      &none      &none      &none
+                &trans     &trans     &trans     &trans    &mo_to 4 0 &lyr3_bspc  &trans     &trans    &lt 2 SPACE &to 2      &none      &none      &none      &none
             >;
         };
 
