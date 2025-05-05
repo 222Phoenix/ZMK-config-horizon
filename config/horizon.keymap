@@ -240,7 +240,7 @@ macros {
     }; 
 
     l3: l3 {
-        label = "parn";
+        label = "l3";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
