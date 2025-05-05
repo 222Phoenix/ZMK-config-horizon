@@ -380,7 +380,7 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
-                &trans     &trans     &trans     &trans     &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &mo 3      &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
