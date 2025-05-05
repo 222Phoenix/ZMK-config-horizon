@@ -352,22 +352,6 @@ macros {
     };
 };
 
-/ {
-     conditional_layer {
-            compatible = "zmk,conditional-layers";
-            if-layers = <1>;
-            then-layer = <caps_layer>;
-      };
-
-      caps_layer {
-        display-name = "Caps Layer";
-          bindings = <
-             &kp CAPS_LOCK
-            ...
-         >;
-    };
- };
-
 //keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap keymap 
 
 / {
