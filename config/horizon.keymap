@@ -130,6 +130,13 @@
             bindings = <&mo>, <&mkp>;
         };
 
+        capslock_hold: capslock_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&test>, <LC(C)>;
+        };
 
  };
 };
@@ -242,6 +249,16 @@ macros {
               <&kp BSPC>;
     }; 
 
+    test: test {
+        label = "test";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <LC(V)>, 
+              <&kp CAPS>;
+    }; 
+
+
   };
 };
 
@@ -334,6 +351,12 @@ macros {
             key-positions = <9 10 11>;
             bindings = <&soft_off>;
         };
+
+        combo_mute {
+            timeout-ms = <175>;
+            key-positions = <42 47>;
+            bindings = <&kp C_MUTE>;
+        };          
 
     };
 };
