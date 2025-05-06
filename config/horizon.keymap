@@ -404,7 +404,7 @@ macros {
 
         5 { //BT config
             bindings = <
-                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     BTBLE      BTBLE      BTUSB      &trans     &soft_off
+                &trans     &trans     &trans     &trans     &trans     &trans                           &trans     BTBLE      &trans     BTUSB      &trans     &soft_off
                 &trans     &trans     &trans     &trans     &trans     &trans                           &trans     BT1        BT2        BT3        &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     BTCLR      BTCLRA     &trans     &trans     &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
