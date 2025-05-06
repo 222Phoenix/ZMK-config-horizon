@@ -397,7 +397,7 @@ macros {
             bindings = <
                 CAT        &tdlpar    &trans     CAD        &trans     &trans                           &trans     &kp CAPS   &kp SLCK   &trans     &tdrpar    &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
-                &trans     &LGUI      vold       volu       &trans     &dashm     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
+                &trans     &kp LGUI   vold       volu       &trans     &dashm     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
