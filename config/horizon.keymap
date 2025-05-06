@@ -130,6 +130,14 @@
             bindings = <&mo>, <&l3>;
             };
 
+        tbs_mt: tb_scroll_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&tb_mo_scroll>, <&tb_tg_scroll>;
+        };
+
   };
 }; 
 
@@ -238,6 +246,32 @@ macros {
             = <&to 0>, 
               <&kp BSPC>;
     }; 
+
+        tb_tg_scroll: tb_tg_scroll {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <5>;
+            wait-ms = <5>;
+            bindings
+                = <&macro_tap &kp KP_NLCK>
+                , <&macro_tap &kp KP_NLCK>
+                ;
+        };
+
+        tb_mo_scroll: tb_mo_scroll {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <5>;
+            wait-ms = <5>;
+            bindings
+                = <&macro_tap &kp KP_NLCK>
+                , <&macro_tap &kp KP_NLCK>
+                , <&macro_pause_for_release>
+                , <&macro_tap &kp KP_NLCK>
+                , <&macro_tap &kp KP_NLCK>
+                ;
+        };
+
 
   };
 };
@@ -377,7 +411,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     SCR_U                            &tbs_mt 0 0     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
