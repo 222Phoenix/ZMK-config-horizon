@@ -253,8 +253,8 @@ macros {
             tap-ms = <5>;
             wait-ms = <5>;
             bindings
-                = <&macro_tap &kp KP_NLCK>
-                , <&macro_tap &kp KP_NLCK>
+                = <&macro_tap &kp CLCK>
+                , <&macro_tap &kp CLCK>
                 ;
         };
 
@@ -264,11 +264,11 @@ macros {
             tap-ms = <5>;
             wait-ms = <5>;
             bindings
-                = <&macro_tap &kp KP_NLCK>
-                , <&macro_tap &kp KP_NLCK>
+                = <&macro_tap &kp CLCK>
+                , <&macro_tap &kp CLCK>
                 , <&macro_pause_for_release>
-                , <&macro_tap &kp KP_NLCK>
-                , <&macro_tap &kp KP_NLCK>
+                , <&macro_tap &kp CLCK>
+                , <&macro_tap &kp CLCK>
                 ;
         };
 
