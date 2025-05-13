@@ -61,6 +61,13 @@
     flavor = "tap-preferred";
 };
 
+//sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys sticky keys 
+
+&sk {
+    release-after-ms = <2000>; //hold 2 sec if no other key pressed
+    quick-release; //deactivate sk on the next key being pressed
+};
+
 //tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance tap dance
 //tap & double tap 
 
@@ -369,8 +376,8 @@ macros {
         0 { //default
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T                            &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-                &kp LSHFT  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
-                &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
+                &sk LSHFT  &asp       &kp S      &kp D      &kp F      &kp G                            &kp H      &kp J      &kp K      &kp L      SLCN       &quot
+                &sk LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B      &trans     &trans     &kp N      &kp M      &kp COMMA  &kp DOT    &slsh      SENT
                 &trans     &trans     &trans     &trans     LYR4       LYR3       &trans     &trans    &lt 2 SPACE &to 2      &none      &none      &none      &none
             >;
         };
@@ -406,7 +413,7 @@ macros {
             bindings = <
                 CAT        &tdlpar    &trans     CAD        &trans     &trans                           &trans     &kp KP_NUM &kp CAPS   &kp SLCK   &tdrpar    &trans
                 &kp TILDE  &kp EXCL   &kp AT     &kp HASH   &kp DLLR &kp PRCNT                          &kp CARET  &kp AMPS   &kp ASTRK  &trans     &trans     &trans
-                &trans     &kp LGUI   &kp LALT   &trans     &trans     &dashm     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
+                &trans     &sk LGUI   &sk LALT   &trans     &trans     &dashm     &trans     &trans     &trans     &trans     &trans     &kp LG(DOT) &trans    &kp LA(ENTER)
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
         };
