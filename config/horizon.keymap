@@ -300,7 +300,12 @@ macros {
             timeout-ms = <175>;
             key-positions = <10 11>;
             bindings = <&kp LC(BSPC)>;
-        };        
+        };
+        combo_cbspc2 {
+            timeout-ms = <175>;
+            key-positions = <22 23>;
+            bindings = <&kp LC(BSPC)>;
+        };                
         combo_del {
             timeout-ms = <175>;
             key-positions = <28 29>;
@@ -351,6 +356,11 @@ macros {
             key-positions = <42 47>;
             bindings = <&kp C_MUTE>;
         };          
+        combo_save {
+            timeout-ms = <175>;
+            key-positions = <13 14 15>;
+            bindings = <&kp LC(S)>;
+        };
 
     };
 };
