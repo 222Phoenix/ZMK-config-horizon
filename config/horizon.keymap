@@ -173,18 +173,12 @@
             bindings = <SLSH>, <&slshm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
-
-
-
-        ctlrck: ctlrck {     //testing ctrl rclick sb ctrl l
+        rck: rck {     //testing ctrl rclick sb ctrl l
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&tdrck>, <&crck>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
-        };  
-
-        
-
+        };
     };
 };
 
@@ -266,19 +260,16 @@ macros {
             = <&to 0>, 
               <&kp BSPC>;
     }; 
-
-
     crck: crck {
         label = "crck";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_press &kp LCTL>,
+            = <&to 0>,
+              <&macro_press &kp LCTL>,
               <&macro_tap &kp L>,
               <&macro_release &kp LCTL>;
     };
-
-
   };
 };
 
@@ -428,7 +419,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     SCR_U                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &tdrck     &kp PSCRN  &trans
+                &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
