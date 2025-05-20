@@ -276,7 +276,7 @@ macros {
             = <&macro_press &kp LCTL>,
               <&macro_tap &kp L>,
               <&macro_release &kp LCTL>;
-
+    };
 
 
   };
