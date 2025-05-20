@@ -18,10 +18,10 @@
 #define MS_R &mmv MOVE_RIGHT
 
 &mmv { //faster than default
-    acceleration-exponent=<0>;
-    delay-ms=<0>;
-    time-to-max-speed-ms = <0>;
-    trigger-period-ms = <10>;
+    acceleration-exponent=<1>;  //1 default
+    delay-ms=<0>;               //0 defrault
+    time-to-max-speed-ms = <150>; //300 default
+    trigger-period-ms = <10>;   //16 default
 };
 
 #define SCR_L &msc SCRL_LEFT
@@ -281,19 +281,19 @@ macros {
         combo_pgdn {
             timeout-ms = <175>;
             key-positions = <33 34>;
-            layers = <2>;
+            layers = <2>; //only on layer 2
             bindings = <&kp PG_DN>;
         };
         combo_esc {
             timeout-ms = <175>;
             key-positions = <34 35>;
-            layers = <2>;
+            layers = <2>; //only on layer 2
             bindings = <&kp ESC>;
         };       
         combo_pgup {
             timeout-ms = <175>;
             key-positions = <35 36>;
-            layers = <2>;            
+            layers = <2>; //only on layer 2
             bindings = <&kp PG_UP>;
         };
         combo_esc2 {
