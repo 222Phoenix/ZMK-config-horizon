@@ -17,7 +17,7 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-&mmv {
+&mmv { //faster than default
     acceleration-exponent=<0>;
     delay-ms=<0>;
     time-to-max-speed-ms = <0>;
@@ -53,7 +53,7 @@
 #define BT5 &bt BT_SEL 5
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
-//    hold-time-ms = <500>; 
+//    hold-time-ms = <500>; //not used, currently instant
 //};
 
 &lt {
@@ -154,26 +154,26 @@
 
 / {
     behaviors {
-        asp: asp {
+        asp: asp { //ctrl A is ctrl A & C, copy all
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp A>, <&ctrla>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <(MOD_LCTL)>;
         };
-        quot: quot {
+        quot: quot { //shift quot is quote macro, quote quote left
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <QUOTE>, <&quotm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        slsh: slsh {
+        slsh: slsh { //shift slsh is fwd slsh
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <SLSH>, <&slshm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
-        rck: rck {     //testing ctrl rclick sb ctrl l
+        rck: rck { //ctrl rclick is ctrl l and exit nav lyr
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&tdrck>, <&crck>;
