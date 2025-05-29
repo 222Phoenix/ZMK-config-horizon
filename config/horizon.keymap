@@ -179,7 +179,6 @@
             bindings = <&tdrck>, <&crck>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -394,7 +393,16 @@ macros {
             key-positions = <13 14 15>;
             bindings = <&kp LC(S)>;
         };
-
+        combo_scru {
+            timeout-ms = <175>;
+            key-positions = <5 6>;
+            bindings = <SCR_U>;
+        };
+        combo_scrd {
+            timeout-ms = <175>;
+            key-positions = <16 17>;
+            bindings = <SCR_D>;
+        };        
     };
 };
 
