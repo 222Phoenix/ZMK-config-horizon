@@ -183,7 +183,7 @@
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <SCR_U>, <&kp LC(T)>;
+            bindings = <SCR_U>, <&ctrlt>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
@@ -278,6 +278,16 @@ macros {
               <&macro_tap &kp L>,
               <&macro_release &kp LCTL>;
     };
+    ctrlt: ctrlt {
+        label = "ctrlt";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&to 0>,
+              <&macro_press &kp LCTL>,
+              <&macro_tap &kp T>,
+              <&macro_release &kp LCTL>;
+    };    
   };
 };
 
