@@ -183,7 +183,7 @@
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <SCR_U>, <&kp LC(T);
+            bindings = <SCR_U>, <&kp LC(T)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
