@@ -185,7 +185,12 @@
             bindings = <SCR_U>, <&ctrlt>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-
+        scruu: scruu { //ctrl sft t from nav wip
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&scru>, <&ctrlst>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 };
 
@@ -286,7 +291,19 @@ macros {
               <&macro_press &kp LCTL>,
               <&macro_tap &kp T>,
               <&macro_release &kp LCTL>;
-    };    
+    }; 
+    ctrlst: ctrlst {
+        label = "ctrlst";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&to 0>,
+              <&macro_press &kp LCTL>,
+              <&macro_press &kp LSFT>,
+              <&macro_tap &kp T>,
+              <&macro_release &kp LSFT>;
+              <&macro_release &kp LCTL>;
+    };         
   };
 };
 
@@ -444,7 +461,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     &scru                            &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     MS_L       MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
