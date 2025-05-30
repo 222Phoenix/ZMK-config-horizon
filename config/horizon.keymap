@@ -301,7 +301,7 @@ macros {
               <&macro_press &kp LCTL>,
               <&macro_press &kp LSFT>,
               <&macro_tap &kp T>,
-              <&macro_release &kp LSFT>;
+              <&macro_release &kp LSFT>,
               <&macro_release &kp LCTL>;
     };         
   };
