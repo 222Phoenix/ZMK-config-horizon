@@ -185,7 +185,7 @@
             bindings = <SCR_U>, <&ctrlt>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        scruu: scruu { //ctrl sft t from nav wip
+        scruu: scruu { //ctrl sft t from nav wip. works but cs t also lyr 0 why?
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&scru>, <&ctrlst>;
@@ -297,8 +297,7 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&to 0>,
-              <&macro_press &kp LCTL>,
+            = <&macro_press &kp LCTL>,
               <&macro_press &kp LSFT>,
               <&macro_tap &kp T>,
               <&macro_release &kp LSFT>,
