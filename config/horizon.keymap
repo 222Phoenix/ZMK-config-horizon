@@ -185,12 +185,19 @@
             bindings = <SCR_U>, <&ctrlt>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        scruu: scruu { //ctrl sft t from nav wip. works but cs t also lyr 0 why?
+        scruu: scruu { //ctrl sft scrollup is ctrl sft t to reopen tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&scru>, <&ctrlst>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        ms_l: ms_l { //ctrl ms_l to save
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <MS_L>, <&ctrls>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
     };
 };
 
@@ -302,7 +309,17 @@ macros {
               <&macro_tap &kp T>,
               <&macro_release &kp LSFT>,
               <&macro_release &kp LCTL>;
-    };         
+    };   
+    ctrls: ctrls {
+        label = "ctrlst";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp S>,
+              <&macro_release &kp LCTL>;
+    };  
+
   };
 };
 
