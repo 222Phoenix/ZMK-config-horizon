@@ -329,7 +329,7 @@ macros {
         #binding-cells = <0>;
         bindings
             = <&macro_press &kp LCTL>,
-              <&macro_tap &kp k>,
+              <&macro_tap &kp K>,
               <&macro_release &kp LCTL>;
     };
   };
