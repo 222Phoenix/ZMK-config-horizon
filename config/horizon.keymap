@@ -197,7 +197,12 @@
             bindings = <MS_L>, <&ctrls>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-
+        mck: mck { //ctrl &tdmck to save
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&tdmck>, <&ctrlk>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
     };
 };
 
@@ -257,8 +262,7 @@ macros {
         wait-ms = <40>;
         tap-ms = <40>;
         bindings
-            = <&to 1>,
-              <&macro_press &kp LCTL>,
+            = <&macro_press &kp LCTL>,
               <&macro_tap &kp F &kp A &kp V &kp A>,
               <&macro_release &kp LCTL>;
     }; 
@@ -319,7 +323,15 @@ macros {
               <&macro_tap &kp S>,
               <&macro_release &kp LCTL>;
     };  
-
+    ctrlk: ctrlk {
+        label = "ctrlk";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp k>,
+              <&macro_release &kp LCTL>;
+    };
   };
 };
 
@@ -478,7 +490,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_l      MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     &ms_l      MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &mck       &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
