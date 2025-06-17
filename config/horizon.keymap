@@ -191,13 +191,13 @@
             bindings = <&scru>, <&ctrlst>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        ms_l: ms_l { //ctrl ms_l to save
+        ms_ll: ms_ll { //ctrl ms_l to save
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <MS_L>, <&ctrls>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        mck: mck { //ctrl &tdmck to save
+        mck: mck { //ctrl &tdmck to ctrl k for outlook
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&tdmck>, <&ctrlk>;
@@ -490,7 +490,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_l      MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &mck       &rck       &kp PSCRN  &trans
+                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &mck       &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
