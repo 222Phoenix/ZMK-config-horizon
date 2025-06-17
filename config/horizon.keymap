@@ -197,12 +197,6 @@
             bindings = <MS_L>, <&ctrls>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        mck: mck { //ctrl &tdmck to ctrl k for outlook
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&tdmck>, <&ctrlk>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
     };
 };
 
@@ -323,15 +317,6 @@ macros {
               <&macro_tap &kp S>,
               <&macro_release &kp LCTL>;
     };  
-    ctrlk: ctrlk {
-        label = "ctrlk";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp K>,
-              <&macro_release &kp LCTL>;
-    };
   };
 };
 
