@@ -475,7 +475,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &mck       &rck       &kp PSCRN  &trans
+                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
