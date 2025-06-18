@@ -33,24 +33,24 @@
 #define CAT &kp LC(LA(TAB))
 
 #define COPPST &hold_tap LC(V) LC(C)
-#define SLCN   &hold_tap LS(SEMI) SEMI
-#define QUOTE  &hold_tap LS(APOS) APOS
-#define SLSH   &hold_tap QMARK SLASH
 #define SENT   &hold_tap LSHFT ENTER
+#define SLCN   &hold_tap LS(SEMI) SEMI
+#define SLSH   &hold_tap QMARK SLASH
+#define QUOTE  &hold_tap LS(APOS) APOS
 
-#define LYR4 &mo_to 4 0 
-#define LYR3 &mo_m 3 0
-#define vold &kp C_VOL_DN 
-#define volu &kp C_VOL_UP
+#define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
 #define BTCLRA &bt BT_CLR_ALL
-#define BTBLE &out OUT_BLE 
 #define BTUSB &out OUT_USB
 #define BT1 &bt BT_SEL 1 
 #define BT2 &bt BT_SEL 2 
 #define BT3 &bt BT_SEL 3
 #define BT4 &bt BT_SEL 4
 #define BT5 &bt BT_SEL 5
+#define LYR3 &mo_m 3 0
+#define LYR4 &mo_to 4 0 
+#define vold &kp C_VOL_DN 
+#define volu &kp C_VOL_UP
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
@@ -132,6 +132,12 @@
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
+        mo_m: mo_m { //hold mo, tap macro
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>; 
+            bindings = <&mo>, <&l3>;
+            };
         mo_to: behavior_mo_to { //hold mo, tap to
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -139,12 +145,6 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
-        mo_m: mo_m { //hold mo, tap macro
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>; 
-            bindings = <&mo>, <&l3>;
-            };
 
   };
 }; 
@@ -161,16 +161,16 @@
             mods = <(MOD_LCTL|MOD_RCTL)>;
             keep-mods = <(MOD_LCTL)>;
         };
+        ms_ll: ms_ll { //ctrl ms_l to save
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <MS_L>, <&ctrls>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };        
         quot: quot { //shift quot is quote macro, quote quote left
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <QUOTE>, <&quotm>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        slsh: slsh { //shift slsh is fwd slsh
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <SLSH>, <&slshm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
         rck: rck { //ctrl rclick is ctrl l and exit nav lyr
@@ -179,6 +179,12 @@
             bindings = <&tdrck>, <&crck>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        slsh: slsh { //shift slsh is fwd slsh
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <SLSH>, <&slshm>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };        
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -191,12 +197,7 @@
             bindings = <&scru>, <&ctrlst>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        ms_ll: ms_ll { //ctrl ms_l to save
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <MS_L>, <&ctrls>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
+
     };
 };
 
@@ -215,6 +216,55 @@ macros {
               <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
               <&macro_release &kp LCTRL>;
     };
+    crck: crck {
+        label = "crck";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&to 0>,
+              <&macro_press &kp LCTL>,
+              <&macro_tap &kp L>,
+              <&macro_release &kp LCTL>;
+    };  
+    ctrla: ctrla {
+        label = "ctrla";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp A &kp C>,
+              <&macro_release &kp LCTL>;
+    }; 
+    ctrls: ctrls {
+        label = "ctrls";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp S>,
+              <&macro_release &kp LCTL>;
+    }; 
+    ctrlst: ctrlst {
+        label = "ctrlst";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_press &kp LSFT>,
+              <&macro_tap &kp T>,
+              <&macro_release &kp LSFT>,
+              <&macro_release &kp LCTL>;
+    };     
+    ctrlt: ctrlt {
+        label = "ctrlt";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&to 0>,
+              <&macro_press &kp LCTL>,
+              <&macro_tap &kp T>,
+              <&macro_release &kp LCTL>;
+    };     
     dashm: dashm {
         label = "dashm";
         compatible = "zmk,behavior-macro";
@@ -222,6 +272,34 @@ macros {
         bindings
             = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>;
     };
+    find: find {
+        label = "find";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <40>;
+        tap-ms = <40>;
+        bindings
+            = <&macro_press &kp LCTL>,
+              <&macro_tap &kp F &kp A &kp V &kp A>,
+              <&macro_release &kp LCTL>;
+    }; 
+    l3: l3 {
+        label = "l3";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&to 0>, 
+              <&kp BSPC>;
+    }; 
+    parn: parn {
+        label = "parn";
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        wait-ms = <40>;
+        tap-ms = <40>;
+        bindings
+            = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
+    }; 
     quotm: quotm {
         label = "quotm";
         compatible = "zmk,behavior-macro";
@@ -239,84 +317,7 @@ macros {
         #binding-cells = <0>;
         bindings
             = <&macro_tap &kp BSLH>;
-    };            
-    ctrla: ctrla {
-        label = "ctrla";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp A &kp C>,
-              <&macro_release &kp LCTL>;
     }; 
-    find: find {
-        label = "find";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <40>;
-        tap-ms = <40>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp F &kp A &kp V &kp A>,
-              <&macro_release &kp LCTL>;
-    }; 
-    parn: parn {
-        label = "parn";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        wait-ms = <40>;
-        tap-ms = <40>;
-        bindings
-            = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
-    }; 
-    l3: l3 {
-        label = "l3";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&to 0>, 
-              <&kp BSPC>;
-    }; 
-    crck: crck {
-        label = "crck";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&to 0>,
-              <&macro_press &kp LCTL>,
-              <&macro_tap &kp L>,
-              <&macro_release &kp LCTL>;
-    };
-    ctrlt: ctrlt {
-        label = "ctrlt";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&to 0>,
-              <&macro_press &kp LCTL>,
-              <&macro_tap &kp T>,
-              <&macro_release &kp LCTL>;
-    }; 
-    ctrlst: ctrlst {
-        label = "ctrlst";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_press &kp LSFT>,
-              <&macro_tap &kp T>,
-              <&macro_release &kp LSFT>,
-              <&macro_release &kp LCTL>;
-    };   
-    ctrls: ctrls {
-        label = "ctrls";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp S>,
-              <&macro_release &kp LCTL>;
-    };  
   };
 };
 
@@ -325,39 +326,11 @@ macros {
 / {
     combos {
         compatible = "zmk,combos";
-        combo_pgdn {
+        combo_cat {
             timeout-ms = <175>;
-            key-positions = <33 34>;
-            layers = <2>; //only on layer 2
-            bindings = <&kp PG_DN>;
-        };
-        combo_esc {
-            timeout-ms = <175>;
-            key-positions = <34 35>;
-            layers = <2>; //only on layer 2
-            bindings = <&kp ESC>;
-        };       
-        combo_pgup {
-            timeout-ms = <175>;
-            key-positions = <35 36>;
-            layers = <2>; //only on layer 2
-            bindings = <&kp PG_UP>;
-        };
-        combo_esc2 {
-            timeout-ms = <175>;
-            key-positions = <15 43>;
-            bindings = <&kp ESC>;
-        };         
-        combo_reset {
-            timeout-ms = <175>;
-            key-positions = <0 11>;
-            bindings = <&bootloader>;
-        }; 
-        combo_under {
-            timeout-ms = <175>;
-            key-positions = <32 33>;
-            bindings = <&kp UNDER>;
-        };  
+            key-positions = <0 1>;
+            bindings = <&kp LC(LA(TAB))>;
+        };      
         combo_cbspc {
             timeout-ms = <175>;
             key-positions = <10 11>;
@@ -367,72 +340,100 @@ macros {
             timeout-ms = <175>;
             key-positions = <22 23>;
             bindings = <&kp LC(BSPC)>;
-        };                
-        combo_del {
-            timeout-ms = <175>;
-            key-positions = <28 29>;
-            bindings = <&kp DEL>;
-        };     
-        combo_ctrlw {
-            timeout-ms = <175>;
-            key-positions = <1 2>;
-            bindings = <&kp LC(W)>;
-        };             
-        combo_find {
-            timeout-ms = <175>;
-            key-positions = <15 16>;
-            bindings = <&find>;
-        };         
-        combo_cat {
-            timeout-ms = <175>;
-            key-positions = <0 1>;
-            bindings = <&kp LC(LA(TAB))>;
-        };
+        };          
         combo_copy {
             timeout-ms = <175>;
             key-positions = <26 27>;
             bindings = <&kp LC(C)>;
-        };
-        combo_paste {
-            timeout-ms = <175>;
-            key-positions = <27 28>;
-            bindings = <&kp LC(V)>;
-        };                                  
+        };  
         combo_cpys {
             timeout-ms = <175>;
             key-positions = <26 27 28>;
             bindings = <&copysp>;
         };
-        combo_parn {
+        combo_ctrlw {
             timeout-ms = <175>;
-            key-positions = <1 10>;
-            bindings = <&parn>;
-        };
-        combo_soft {
+            key-positions = <1 2>;
+            bindings = <&kp LC(W)>;
+        };              
+        combo_del {
             timeout-ms = <175>;
-            key-positions = <9 10 11>;
-            bindings = <&soft_off>;
+            key-positions = <28 29>;
+            bindings = <&kp DEL>;
+        };   
+        combo_esc {
+            timeout-ms = <175>;
+            key-positions = <34 35>;
+            layers = <2>; //only on layer 2
+            bindings = <&kp ESC>;
+        };       
+        combo_esc2 {
+            timeout-ms = <175>;
+            key-positions = <15 43>;
+            bindings = <&kp ESC>;
+        }; 
+        combo_find {
+            timeout-ms = <175>;
+            key-positions = <15 16>;
+            bindings = <&find>;
         };
         combo_mute {
             timeout-ms = <175>;
             key-positions = <42 47>;
             bindings = <&kp C_MUTE>;
-        };          
+        };           
+        combo_parn {
+            timeout-ms = <175>;
+            key-positions = <1 10>;
+            bindings = <&parn>;
+        };
+        combo_paste {
+            timeout-ms = <175>;
+            key-positions = <27 28>;
+            bindings = <&kp LC(V)>;
+        }; 
+        combo_pgdn {
+            timeout-ms = <175>;
+            key-positions = <33 34>;
+            layers = <2>; //only on layer 2
+            bindings = <&kp PG_DN>;
+        };
+        combo_pgup {
+            timeout-ms = <175>;
+            key-positions = <35 36>;
+            layers = <2>; //only on layer 2
+            bindings = <&kp PG_UP>;
+        };
+        combo_reset {
+            timeout-ms = <175>;
+            key-positions = <0 11>;
+            bindings = <&bootloader>;
+        }; 
         combo_save {
             timeout-ms = <175>;
             key-positions = <13 14 15>;
             bindings = <&kp LC(S)>;
         };
-        combo_scru {
-            timeout-ms = <175>;
-            key-positions = <4 5>;
-            bindings = <SCR_U>;
-        };
         combo_scrd {
             timeout-ms = <175>;
             key-positions = <16 17>;
             bindings = <SCR_D>;
-        };        
+        };   
+        combo_scru {
+            timeout-ms = <175>;
+            key-positions = <4 5>;
+            bindings = <SCR_U>;
+        }; 
+        combo_soft {
+            timeout-ms = <175>;
+            key-positions = <9 10 11>;
+            bindings = <&soft_off>;
+        };
+        combo_under {
+            timeout-ms = <175>;
+            key-positions = <32 33>;
+            bindings = <&kp UNDER>;
+        };  
     };
 };
 
