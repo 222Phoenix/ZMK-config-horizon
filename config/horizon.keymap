@@ -381,7 +381,12 @@ macros {
             timeout-ms = <175>;
             key-positions = <42 47>;
             bindings = <&kp C_MUTE>;
-        };           
+        };    
+        combo_mute2 {
+            timeout-ms = <175>;
+            key-positions = <43 46>;
+            bindings = <&kp C_MUTE>;
+        };                  
         combo_parn {
             timeout-ms = <175>;
             key-positions = <1 10>;
