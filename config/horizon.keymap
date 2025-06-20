@@ -364,7 +364,7 @@ macros {
         combo_esc {
             timeout-ms = <175>;
             key-positions = <34 35>;
-//            layers = <2>; //only on layer 2
+            layers = <2>;           //only on layer 2
             bindings = <&kp ESC>;
         };       
         combo_esc2 {
@@ -400,13 +400,13 @@ macros {
         combo_pgdn {
             timeout-ms = <175>;
             key-positions = <33 34>;
-//            layers = <2>; //only on layer 2
+            layers = <2>;           //only on layer 2
             bindings = <&kp PG_DN>;
         };
         combo_pgup {
             timeout-ms = <175>;
             key-positions = <35 36>;
-//            layers = <2>; //only on layer 2
+            layers = <2>;           //only on layer 2
             bindings = <&kp PG_UP>;
         };
         combo_reset {
