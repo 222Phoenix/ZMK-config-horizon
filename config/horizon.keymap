@@ -52,8 +52,6 @@
 #define vold &kp C_VOL_DN 
 #define volu &kp C_VOL_UP
 
-//tapping-term-ms = <200>; // This is the value already set by default
-
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
 //};
@@ -78,37 +76,37 @@
         tdltb: tap_dance_ltb {                                 //left tab
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&hold_tap LA(LEFT) LS(COMMA)>, <&kp LC(LS(TAB))>;
         };
         tdrtb: tap_dance_rtb {                                 //right tab
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&hold_tap LA(RIGHT) LS(DOT)>, <&kp LC(TAB)>;
         };
         tdmck: tap_dance_mck {                                 //mclick
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&hold_tap_clk 1 MCLK>, <&kp LC(LS(T))>;
         };
         tdrck: tap_dance_rck {                                 //rclick
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&hold_tap_clk 1 RCLK>, <&kp LC(W)>;
         };        
         tdlpar: tap_dance_lpar {                                //lpar
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&kp LPAR>, <&kp LBRC>, <&kp LBKT>, <&kp LT>;
         };
         tdrpar: tap_dance_rpar {                                //rpar
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             bindings = <&kp RPAR>, <&kp RBRC>, <&kp RBKT>, <&kp GT>;
         };
 
@@ -123,28 +121,28 @@
         hold_tap: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-//            tapping-term-ms = <300>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
         hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-//            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
         mo_m: mo_m { //hold mo, tap macro
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-//            tapping-term-ms = <200>; 
+            tapping-term-ms = <300>; 
             bindings = <&mo>, <&l3>;
             };
         mo_to: behavior_mo_to { //hold mo, tap to
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-//            tapping-term-ms = <200>;
+            tapping-term-ms = <300>;
             bindings = <&mo>, <&to>;
         };
 
