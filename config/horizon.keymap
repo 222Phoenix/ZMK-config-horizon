@@ -23,7 +23,10 @@
             fast default {
                     layers = <2>;
                     input-processors = <&zip_xy_scaler 2 1>; // 2x speed lyr2
-            };
+            };            
+        };
+
+&mmv_input_listener {
             sniping {
                     layers = <6>;
                     input-processors = <&zip_xy_scaler 1 4>; // 1/4 sniping speed lyr6
