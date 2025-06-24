@@ -494,9 +494,9 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &to 6      MS_U       &to 6      &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &to 6      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
@@ -530,9 +530,9 @@ macros {
 
         6 { //slow mousekeys
             bindings = <
-                &trans     &trans     &to 2      MS_U       &to 2      &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &to 2      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
