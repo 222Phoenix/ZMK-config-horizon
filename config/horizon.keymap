@@ -19,12 +19,7 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-&mmv_input_listener {
-            fast default {
-                    layers = <2>;
-                    input-processors = <&zip_xy_scaler 2 1>; // 2x speed lyr2
-            };            
-        };
+
 
 &mmv_input_listener {
             sniping {
