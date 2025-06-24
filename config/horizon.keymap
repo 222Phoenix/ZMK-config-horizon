@@ -29,8 +29,8 @@
 &mmv { //mousekey faster than default
     acceleration-exponent=<0>;    //1 default
     delay-ms=<0>;                 //0 defrault
-    time-to-max-speed-ms = <100>; //300 default
-    trigger-period-ms = <10>;     //16 default
+    time-to-max-speed-ms = <50>;  //300 default prev 100
+    trigger-period-ms = <10>;     //16 default prev 10
 };
 
 #define SCR_L &msc SCRL_LEFT
@@ -490,9 +490,9 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &tg 6      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &mo 6      &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
@@ -535,7 +535,7 @@ macros {
         7 { //4 way scrolling
             bindings = <
                 &trans     &trans     &trans     SCR_U      &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &tg 2      SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
