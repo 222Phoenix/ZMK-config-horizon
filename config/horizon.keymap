@@ -22,7 +22,7 @@
 &mmv_input_listener {
             precision {
                     layers = <6>;
-                    input-processors = <&zip_xy_scaler 1 4>;
+                    input-processors = <&zip_xy_scaler 1 4>; // 1/4 sniping speed lyr6
             };
         };
 
@@ -98,7 +98,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&hold_tap_clk 1 MCLK>, <&kp LC(LS(T))>;
+            bindings = <&hold_tap_clk 7 MCLK>, <&kp LC(LS(T))>;
         };
         tdrck: tap_dance_rck {                                 //rclick
             compatible = "zmk,behavior-tap-dance";
@@ -527,6 +527,15 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+            >;
+        };  
+
+        7 { //4 way scrolling
+            bindings = <
+                &trans     &trans     &trans     SCR_U      &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
