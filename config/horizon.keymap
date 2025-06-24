@@ -29,8 +29,8 @@
 &mmv { //mousekey faster than default
     acceleration-exponent=<0>;   //1 default
     delay-ms=<0>;                //0 defrault
-    time-to-max-speed-ms = <0>;  //300 default prev 100
-    trigger-period-ms = <0>;     //16 default prev 10
+    time-to-max-speed-ms = <10>;  //300 default prev 100
+    trigger-period-ms = <5>;     //16 default prev 10
 };
 
 #define SCR_L &msc SCRL_LEFT
