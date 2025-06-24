@@ -12,16 +12,24 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/mouse_keys.dtsi>
 #include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #define MS_L &mmv MOVE_LEFT
 #define MS_D &mmv MOVE_DOWN
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-&mk_listener {
-    layers = <3>;
-    input-processors = <&zip_xy_scaler 1 3>; //one third
-}
+/ {
+    layer_listeners {  
+        compatible = "zmk,layer-listeners";  
+
+        my_layer_listener {  
+            layers = <3>;  
+            input-processors = <&zip_xy_scaler 1 3>; //one third
+            bindings = <&my_behavior>;  
+        };
+    };
+};
 
 &mmv { //mousekey faster than default
     acceleration-exponent=<0>;  //1 default
