@@ -20,17 +20,21 @@
 #define MS_R &mmv MOVE_RIGHT
 
 &mmv_input_listener {
-            precision {
+            fast default {
+                    layers = <2>;
+                    input-processors = <&zip_xy_scaler 2 1>; // 2x speed lyr2
+            };
+            sniping {
                     layers = <6>;
                     input-processors = <&zip_xy_scaler 1 4>; // 1/4 sniping speed lyr6
-            };
+            };            
         };
 
-&mmv { //mousekey faster than default
-    acceleration-exponent=<0>;   //1 default
-    delay-ms=<0>;                //0 defrault
-    time-to-max-speed-ms = <10>;  //300 default prev 100
-    trigger-period-ms = <5>;     //16 default prev 10
+&mmv { //mousekey faster than default, 0 0 150 10 good general settings
+    acceleration-exponent=<0>;    //0
+    delay-ms=<0>;                 //0
+    time-to-max-speed-ms = <150>; //150 
+    trigger-period-ms = <10>;     //10 
 };
 
 #define SCR_L &msc SCRL_LEFT
