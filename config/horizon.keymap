@@ -494,7 +494,7 @@ macros {
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &mo 6      &trans     &trans     &trans     &trans                 
             >;
         };        
 
@@ -518,7 +518,7 @@ macros {
 
         5 { //BT config
             bindings = <
-                EP_TOG     &trans     &trans     &trans     &trans     &trans                           &trans     BTUSB      &trans     &trans     &trans     &soft_off
+                &EP_TOG    &trans     &trans     &trans     &trans     &trans                           &trans     BTUSB      &trans     &trans     &trans     &soft_off
                 &trans     BTCLRA     &trans     &trans     &trans     &trans                           &trans     BT1        BT2        BT3        BT4        BT5 
                 &trans     &trans     &trans     BTCLR      &trans     BTBLE      &trans     &trans     &trans     BT1        BT2        BT3        BT4        BT5
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
