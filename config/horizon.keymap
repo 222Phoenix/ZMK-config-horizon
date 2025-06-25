@@ -20,20 +20,10 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-&mmv_input_listener {
-            sniping {
-                    layers = <6>;
-                    input-processors = <&zip_xy_scaler 1 6>; // 1/6 sniping speed lyr6
-                    layers = <2>;
-                    input-processors = <&zip_xy_scaler 4 1>; // 4x speed lyr2
-            };            
-        };
-
-&mmv { //mousekey faster than default, 0 0 150 10 good general settings
-    acceleration-exponent=<0>;    //0
-    delay-ms=<0>;                 //0
-    time-to-max-speed-ms = <150>; //150 
-    trigger-period-ms = <10>;     //10 
+&mmv {
+  max-speed = <10>; // Example: Max speed of 5
+  move-x = <5>;   // Example: Move right 5 units
+  move-y = <1>;   // Example: Don't move up or down
 };
 
 #define SCR_L &msc SCRL_LEFT
@@ -481,10 +471,10 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &mo 6      &trans     &trans     &trans     &trans                 
+                &trans     &none      &none      MS_U       &none      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
