@@ -20,11 +20,8 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-&mmv {
-  max-speed = <10>; // Example: Max speed of 5
-  move-x = <5>;   // Example: Move right 5 units
-  move-y = <1>;   // Example: Don't move up or down
-};
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #define SCR_L &msc SCRL_LEFT
 #define SCR_D &msc SCRL_DOWN
