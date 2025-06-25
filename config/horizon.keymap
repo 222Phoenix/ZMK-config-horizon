@@ -336,14 +336,14 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&mm_move_left 250>;
+            = <&mmv MOVE_LEFT 250>;
     };    
     jumpr: jumpr {
         label = "jumpr";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&mm_move_right 250>;
+            = <&mmv MOVE_RIGHT 250>;
     };      
   };
 };
