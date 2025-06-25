@@ -219,7 +219,7 @@
 / {
 macros {
     copysp: copysp {
-        label = "copysp";
+//        label = "copysp";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <40>;
@@ -230,7 +230,7 @@ macros {
               <&macro_release &kp LCTRL>;
     };
     crck: crck {
-        label = "crck";
+//        label = "crck";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -240,7 +240,7 @@ macros {
               <&macro_release &kp LCTL>;
     };  
     ctrla: ctrla {
-        label = "ctrla";
+//        label = "ctrla";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -249,7 +249,7 @@ macros {
               <&macro_release &kp LCTL>;
     }; 
     ctrls: ctrls {
-        label = "ctrls";
+//        label = "ctrls";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -258,7 +258,7 @@ macros {
               <&macro_release &kp LCTL>;
     }; 
     ctrlst: ctrlst {
-        label = "ctrlst";
+//        label = "ctrlst";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -269,7 +269,7 @@ macros {
               <&macro_release &kp LCTL>;
     };     
     ctrlt: ctrlt {
-        label = "ctrlt";
+//        label = "ctrlt";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -279,14 +279,14 @@ macros {
               <&macro_release &kp LCTL>;
     };     
     dashm: dashm {
-        label = "dashm";
+//        label = "dashm";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
             = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>;
     };
     find: find {
-        label = "find";
+//        label = "find";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <40>;
@@ -297,7 +297,7 @@ macros {
               <&macro_release &kp LCTL>;
     }; 
     l3: l3 {
-        label = "l3";
+//        label = "l3";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -305,7 +305,7 @@ macros {
               <&kp BSPC>;
     }; 
     parn: parn {
-        label = "parn";
+//        label = "parn";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <40>;
@@ -314,7 +314,7 @@ macros {
             = <&macro_tap &kp LPAR &kp RPAR &kp LEFT>;
     }; 
     quotm: quotm {
-        label = "quotm";
+//        label = "quotm";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -325,13 +325,12 @@ macros {
               <&macro_tap &kp LEFT>;
     };
     slshm: slshm {
-        label = "slshm";
+//        label = "slshm";
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
             = <&macro_tap &kp BSLH>;
-    }; 
-      
+    };  
   };
 };
 
