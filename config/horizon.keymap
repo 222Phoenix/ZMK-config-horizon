@@ -35,7 +35,7 @@
 #define SENT   &hold_tap LSHFT ENTER
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
-#define QUOTE  &hold_tap LS(APOS) APOS
+#define QUOTE  &hold_tapslow LS(APOS) APOS
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
@@ -122,6 +122,13 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
+        hold_tapslow: hold_tapslow {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
