@@ -61,8 +61,8 @@
 #define BT5 &bt BT_SEL 5
 #define LYR3 &mo_m 3 0
 #define LYR4 &mo_to 4 0 
-#define VOLD &kp C_VOL_DN 
-#define VOLU &kp C_VOL_UP
+#define vold &kp C_VOL_DN 
+#define volu &kp C_VOL_UP
 #define CHRG &ext_power EP_TOG
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
@@ -495,7 +495,7 @@ macros {
             bindings = <
                 &trans     &trans     MOVE_X(15) MS_U       MOVE_X(-15)&scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     VOLD       VOLU       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &mo 6      &trans     &trans     &trans     &trans                 
             >;
         };        
@@ -531,7 +531,7 @@ macros {
             bindings = <
                 &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &to 2      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     VOLD       VOLU       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
@@ -540,7 +540,7 @@ macros {
             bindings = <
                 &trans     &trans     &trans     SCR_U      &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     VOLD       VOLU       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
