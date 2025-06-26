@@ -318,18 +318,6 @@ macros {
         bindings
             = <&macro_tap &kp BSLH>;
     };
-    jumpl: jumpl {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_tap &mmv MOVE_X(10000000)>;
-    };
-    jumpr: jumpr {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_tap &mmv MOVE_X(-10000000)>;
-    };
   };
 };
 
@@ -492,7 +480,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &none      &jumpl     MS_U       &jumpr     &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &none      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
