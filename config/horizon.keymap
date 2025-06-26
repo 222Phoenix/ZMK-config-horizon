@@ -20,6 +20,9 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
+#define MS_JL &mmv MOVE_X(-400)
+#define MS_JR &mmv MOVE_X(400)
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
@@ -270,7 +273,8 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>;
+//            = <&macro_tap &mkp LCLK &kp RIGHT &kp RIGHT &kp MINUS &kp TAB>; //wireless
+            = <&macro_tap &kp MINUS &kp TAB>; //wired           
     };
     find: find {
         compatible = "zmk,behavior-macro";
@@ -475,7 +479,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &none      &none      MS_U       &none      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
