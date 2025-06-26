@@ -53,7 +53,8 @@
 #define LYR4 &mo_to 4 0 
 #define vold &kp C_VOL_DN 
 #define volu &kp C_VOL_UP
-#define CHRG &ext_power EP_TOG
+#define EPON EXT_POWER_OFF_CMD
+#define EPOFF EXT_POWER_ON_CMD
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
@@ -518,8 +519,8 @@ macros {
 
         5 { //BT config
             bindings = <
-                CHRG       &trans     &trans     &trans     &trans     &trans                           &trans     BTUSB      &trans     &trans     &trans     &soft_off
-                &trans     BTCLRA     &trans     &trans     &trans     &trans                           &trans     BT1        BT2        BT3        BT4        BT5 
+                EPOFF      &trans     &trans     &trans     &trans     &trans                           &trans     BTUSB      &trans     &trans     &trans     &soft_off
+                EPON       BTCLRA     &trans     &trans     &trans     &trans                           &trans     BT1        BT2        BT3        BT4        BT5 
                 &trans     &trans     &trans     BTCLR      &trans     BTBLE      &trans     &trans     &trans     BT1        BT2        BT3        BT4        BT5
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
             >;
