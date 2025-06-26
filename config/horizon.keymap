@@ -23,8 +23,8 @@
 #define MS_JL &mmv MOVE_X(-5000)
 #define MS_JR &mmv MOVE_X(5000)
 
-    &mmv {
-        acceleration-exponent = <2>; // 0 uniform speed, 1 uniform accel, 2 linear accel
+    &mmv { //don't notice any accel with 2, try 1
+        acceleration-exponent = <1>; // 0 uniform speed, 1 uniform accel, 2 linear accel
     };
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
@@ -321,6 +321,18 @@ macros {
         bindings
             = <&macro_tap &kp BSLH>;
     };
+    jumpl: jumpl {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &mmv MOVE_X(-5000)>;
+    };
+    jumpr: jumpr {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &mmv MOVE_X(5000)>;
+    };
   };
 };
 
@@ -483,7 +495,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &none      jumpl      MS_U       jumpr      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &none      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
