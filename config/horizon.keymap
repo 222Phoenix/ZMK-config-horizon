@@ -23,8 +23,8 @@
 #define MS_JL &mmv MOVE_X(-5000)
 #define MS_JR &mmv MOVE_X(5000)
 
-//#define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
-//#define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
 
 #define SCR_L &msc SCRL_LEFT
 #define SCR_D &msc SCRL_DOWN
@@ -53,8 +53,8 @@
 #define LYR4 &mo_to 4 0 
 #define vold &kp C_VOL_DN 
 #define volu &kp C_VOL_UP
-#define EPON EXT_POWER_OFF_CMD
-#define EPOFF EXT_POWER_ON_CMD
+#define EPON &EXT_POWER_OFF_CMD
+#define EPOFF &EXT_POWER_ON_CMD
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
