@@ -23,7 +23,7 @@
 #define MS_JL &mmv MOVE_X(-5000)
 #define MS_JR &mmv MOVE_X(5000)
 
-    mmv {
+    &mmv {
         acceleration-exponent = <2>; // 0 uniform speed, 1 uniform accel, 2 linear accel
     };
 
