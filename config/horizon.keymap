@@ -53,8 +53,8 @@
 #define LYR4 &mo_to 4 0 
 #define vold &kp C_VOL_DN 
 #define volu &kp C_VOL_UP
-#define EPON &EXT_POWER_OFF_CMD
-#define EPOFF &EXT_POWER_ON_CMD
+#define EPON &ext_power EP_ON
+#define EPOFF &ext_power EP_OFF
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
