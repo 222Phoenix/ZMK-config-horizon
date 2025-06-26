@@ -175,7 +175,7 @@
         ms_ll: ms_ll { //ctrl ms_l to save
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <MS_L>, <&ctrls>;
+            bindings = <MS_L>, <&kp LC(S)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };        
         quot: quot { //shift quot is quote macro, quote quote left
@@ -187,7 +187,7 @@
         rck: rck { //ctrl rclick is ctrl l and exit nav lyr
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&tdrck>, <&crck>;
+            bindings = <&tdrck>, <&kp LC(L)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         slsh: slsh { //shift slsh is fwd slsh
@@ -199,13 +199,13 @@
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <SCR_U>, <&ctrlt>;
+            bindings = <SCR_U>, <&kp LC(T)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         scruu: scruu { //ctrl sft scrollup is ctrl sft t to reopen tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&scru>, <&ctrlst>;
+            bindings = <&scru>, <&kp LC(LS(T))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         ms_jrr: ms_jrr { //ctrl MS_JR ctrl r to refresh
@@ -237,7 +237,7 @@ macros {
               <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
               <&macro_release &kp LCTRL>;
     };
-    crck: crck {
+    crck: crck {                                //kill this if ctl r click does ctl l
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -254,7 +254,7 @@ macros {
               <&macro_tap &kp A &kp C>,
               <&macro_release &kp LCTL>;
     }; 
-    ctrls: ctrls {
+    ctrls: ctrls {                              //kill if ctrl ms_l to save
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -262,7 +262,7 @@ macros {
               <&macro_tap &kp S>,
               <&macro_release &kp LCTL>;
     }; 
-    ctrlst: ctrlst {
+    ctrlst: ctrlst {                            //kill if ctrl sft scrollup is ctrl sft t to reopen tab
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -272,7 +272,7 @@ macros {
               <&macro_release &kp LSFT>,
               <&macro_release &kp LCTL>;
     };     
-    ctrlt: ctrlt {
+    ctrlt: ctrlt {                               //kill if ctrl scrollup is ctrl t for new tab
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
