@@ -513,20 +513,20 @@ macros {
             >;
         };
 
-        6 { //slow mousekeys
+        6 { //slow mousekeys, identical to lyr2
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &to 2      &ms_ll     MS_D       MS_R       SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &to 6      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
 
         7 { //4 way scrolling
             bindings = <
-                &trans     &trans     &trans     MS_U       &trans     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
