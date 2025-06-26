@@ -473,9 +473,9 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &none      MS_JL      MS_U       &ms_jrr    &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &none      &ms_ll     MS_D       MS_R       SCR_D                            &none      &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     MS_JL      MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
@@ -509,9 +509,9 @@ macros {
 
         6 { //4 way scrolling
             bindings = <
-                &trans     &none      MS_JL      SCR_U      &ms_jrr    &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &none      SCR_L      SCR_D      SCR_R      SCR_D                            &none      &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     MS_JL      SCR_U      &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
