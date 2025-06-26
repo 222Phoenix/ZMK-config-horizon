@@ -187,7 +187,7 @@
         rck: rck { //ctrl rclick is ctrl l and exit nav lyr
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&tdrck>, <&kp LC(L)>;
+            bindings = <&tdrck>, <&crck>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         slsh: slsh { //shift slsh is fwd slsh
@@ -199,7 +199,7 @@
         scru: scru { //ctrl scrollup is ctrl t for new tab
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <SCR_U>, <&kp LC(T)>;
+            bindings = <SCR_U>, <&ctrlt>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         scruu: scruu { //ctrl sft scrollup is ctrl sft t to reopen tab
@@ -237,7 +237,7 @@ macros {
               <&macro_tap &kp C &kp L &kp V &kp A &kp C>,
               <&macro_release &kp LCTRL>;
     };
-    crck: crck {                                //kill this if ctl r click does ctl l
+    crck: crck {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
@@ -254,25 +254,7 @@ macros {
               <&macro_tap &kp A &kp C>,
               <&macro_release &kp LCTL>;
     }; 
-    ctrls: ctrls {                              //kill if ctrl ms_l to save
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_tap &kp S>,
-              <&macro_release &kp LCTL>;
-    }; 
-    ctrlst: ctrlst {                            //kill if ctrl sft scrollup is ctrl sft t to reopen tab
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-            = <&macro_press &kp LCTL>,
-              <&macro_press &kp LSFT>,
-              <&macro_tap &kp T>,
-              <&macro_release &kp LSFT>,
-              <&macro_release &kp LCTL>;
-    };     
-    ctrlt: ctrlt {                               //kill if ctrl scrollup is ctrl t for new tab
+    ctrlt: ctrlt {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
