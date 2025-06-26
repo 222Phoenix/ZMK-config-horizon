@@ -212,7 +212,13 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <MS_JR>, <&kp LC(R)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        lclick: lclick { //ctrl lck is ctrl j to open downloads
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mkp LCLK>, <&kp LC(J)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 };
@@ -485,8 +491,8 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &none      MS_JL      MS_U       MS_JR      &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &none      &ms_ll     MS_D       MS_R       SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &none      MS_JL      MS_U       &ms_jrr    &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &none      &ms_ll     MS_D       MS_R       SCR_D                            &none      &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
@@ -522,7 +528,7 @@ macros {
         6 { //4 way scrolling
             bindings = <
                 &trans     &none      MS_JL      SCR_U      &ms_jrr    &scruu                           &none      &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &none      SCR_L      SCR_D      SCR_R      SCR_D                            &none      &mkp LCLK  &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &none      SCR_L      SCR_D      SCR_R      SCR_D                            &none      &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &none      vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
