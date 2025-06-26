@@ -321,13 +321,13 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &mmv MOVE_X(-100000)>;
+            = <&macro_tap &mmv MOVE_X(10000000)>;
     };
     jumpr: jumpr {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &mmv MOVE_X(100000)>;
+            = <&macro_tap &mmv MOVE_X(-10000000)>;
     };
   };
 };
