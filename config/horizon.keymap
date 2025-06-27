@@ -20,7 +20,7 @@
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
-#define U_MOUSE_MOVE_MAX 9999
+#define U_MOUSE_MOVE_MAX 99999
 #define MS_JL &mmv MOVE_X(-9999)
 #define MS_JR &mmv MOVE_X(9999)
 
@@ -312,6 +312,18 @@ macros {
         bindings
             = <&macro_tap &kp BSLH>;
     };
+    jumpl: jumpl {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &mmv MOVE_X(99999)>;
+    };
+    jumpr: jumpr {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+            = <&macro_tap &mmv MOVE_X(-99999)>;
+    };    
   };
 };
 
@@ -479,7 +491,7 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     MS_JL      MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     jumpl      MS_U       jumpr      &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
