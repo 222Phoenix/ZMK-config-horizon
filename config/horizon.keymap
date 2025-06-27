@@ -23,8 +23,8 @@
 #define U_MOUSE_MOVE_MAX 3600
 //#define MS_JL &mmv MOVE_X(-3600)
 //#define MS_JR &mmv MOVE_X(3600)
-#define MS_JL MOVE_HOR(-U_MOUSE_MOVE_MAX)
-#define MS_JR MOVE_HOR(U_MOUSE_MOVE_MAX)
+#define MS_JL &mmv(-U_MOUSE_MOVE_MAX)
+#define MS_JR &mmv(U_MOUSE_MOVE_MAX)
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
