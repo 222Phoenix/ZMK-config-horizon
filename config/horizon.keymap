@@ -323,7 +323,7 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-            = <&macro_tap &mmv MOVE_X(-99999)>;
+//            = <&macro_tap &mmv MOVE_X(-99999)>;
         = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(20000)>;            
     };    
   };
