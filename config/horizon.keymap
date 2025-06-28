@@ -39,9 +39,8 @@
 #define SENT   &hold_tap LSHFT ENTER
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
-#define QUOTE  &hold_tapslow LS(APOS) APOS
-
-#define JLFT   &hold_tapslow MS_L jumpl
+#define QUOTE  &hold_tap_slow LS(APOS) APOS
+#define JUMPL  &move_jump &jumpl MS_L
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
@@ -96,13 +95,13 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&hold_tap_clk 6 MCLK>, <&kp LC(LS(T))>;
+            bindings = <&mo_clk 6 MCLK>, <&kp LC(LS(T))>;
         };
         tdrck: tap_dance_rck {                                 //rclick
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&hold_tap_clk 1 RCLK>, <&kp LC(W)>;
+            bindings = <&mo_clk 1 RCLK>, <&kp LC(W)>;
         };        
         tdlpar: tap_dance_lpar {                                //lpar
             compatible = "zmk,behavior-tap-dance";
@@ -124,22 +123,22 @@
 //hold and tap
 
 / {
-    behaviors { //hold tap for regular keycodes
-        hold_tap: hold_tap {
+    behaviors { 
+        hold_tap: hold_tap { //hold tap for regular keycodes
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
-        hold_tapslow: hold_tapslow {
+        hold_tap_slow: hold_tap_slow { //hold tap for regular keycodes. slow for single quote. 
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <500>;
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
-        hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button
+        mo_clk: mo_clk { //hold mo, tap mouse button
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
@@ -159,7 +158,13 @@
             tapping-term-ms = <300>;
             bindings = <&mo>, <&to>;
         };
-
+        move_jump: move_jump { //move_jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&mmv>, <&macro>;
+        };
   };
 }; 
 
@@ -494,7 +499,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &jumpl     MS_U       &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     JLFT     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     JUMPL     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
