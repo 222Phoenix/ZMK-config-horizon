@@ -40,6 +40,7 @@
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
 #define QUOTE  &hold_tap_slow LS(APOS) APOS
+#define JUMPL  &move_jump &mmv MOVE_LEFT &jumpl
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
@@ -164,6 +165,13 @@
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
         };
+        move_jump: move_jump { //move_jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&mmv>, <&jumpl>;
+        };        
   };
 }; 
 
@@ -498,7 +506,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &jumpl     MS_U       &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     JUMPL     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
