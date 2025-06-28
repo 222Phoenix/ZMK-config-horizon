@@ -41,6 +41,8 @@
 #define SLSH   &hold_tap QMARK SLASH
 #define QUOTE  &hold_tapslow LS(APOS) APOS
 
+#define JLFT   &hold_tapslow MS_L jumpl
+
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
 #define BTCLRA &bt BT_CLR_ALL
@@ -316,14 +318,12 @@ macros {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-//            = <&macro_tap &mmv MOVE_X(99999)>;
         = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(-20000)>;
     };
     jumpr: jumpr {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings
-//            = <&macro_tap &mmv MOVE_X(-99999)>;
         = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(20000)>;            
     };    
   };
@@ -494,7 +494,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &jumpl     MS_U       &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     JLFT     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
