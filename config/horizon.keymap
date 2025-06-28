@@ -40,7 +40,7 @@
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
 #define QUOTE  &hold_tap_slow LS(APOS) APOS
-#define JUMPL  &move_jump &jumpl MS_L
+#define JUMPL  &move_jump MS_L &jumpl
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
