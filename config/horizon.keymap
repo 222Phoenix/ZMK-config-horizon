@@ -39,7 +39,7 @@
 #define SENT   &hold_tap LSHFT ENTER
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
-#define QUOTE  &hold_tapslow LS(APOS) APOS
+#define QUOTE  &hold_tap_slow LS(APOS) APOS
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
