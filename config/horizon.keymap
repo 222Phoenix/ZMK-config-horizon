@@ -166,13 +166,7 @@
         };
 
 
-        mo_clk2: mo_clk2 { //hold mo w/caps, tap mouse button
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <0>;
-            bindings = <&moled_clk 7 CAPS>, <&mkp>;
-        };
+
 
         moled_clk: moled_clk { //hold mo and caps, tap mouse button
             compatible = "behavior-macro-two-param";
@@ -189,6 +183,14 @@
             , <&macro_param_1to1>
             , <&macro_release &mo MACRO_PLACEHOLDER>
         ;
+        };
+
+        mo_clk2: mo_clk2 { //hold mo w/caps, tap mouse button
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&moled_clk 6 CAPS>, <&mkp>;
         };
 
   };
