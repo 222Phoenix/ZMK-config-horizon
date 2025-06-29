@@ -94,7 +94,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <&mo_clk 6 MCLK>, <&kp LC(LS(T))>;
+            bindings = <&mo_clk2 6 MCLK>, <&kp LC(LS(T))>;
         };
         tdrck: tap_dance_rck {                                 //rclick
             compatible = "zmk,behavior-tap-dance";
@@ -165,6 +165,14 @@
             bindings = <&mo>, <&to>;
         };
 
+
+        mo_clk2: mo_clk2 { //hold mo w/caps, tap mouse button
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <0>;
+            bindings = <&moled_clk 7 CAPS>, <&mkp>;
+        };
 
         moled_clk: moled_clk { //hold mo and caps, tap mouse button
             compatible = "behavior-macro-two-param";
