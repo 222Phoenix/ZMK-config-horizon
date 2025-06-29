@@ -218,7 +218,7 @@
         ms_jrr: ms_jrr { //ctrl MS_JR ctrl r to refresh
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <MS_JR>, <&kp LC(R)>;
+            bindings = <&jumpr>, <&kp LC(R)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         lclick: lclick { //ctrl lck is ctrl j to open downloads
@@ -324,6 +324,18 @@ macros {
         bindings
         = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(-20000)>;
     };
+    jumpd: jumpd {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_Y(-20000)>;            
+    };
+    jumpu: jumpu {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_Y(20000)>;            
+    };    
     jumpr: jumpr {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
@@ -500,7 +512,7 @@ macros {
                 &trans     &trans     &jumpl     MS_U       &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &mo 7      &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
@@ -533,12 +545,21 @@ macros {
 
         6 { //4 way scrolling
             bindings = <
-                &trans     &trans     MS_JL      SCR_U      &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &jumpl     SCR_U      &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     SCR_L      SCR_D      SCR_R      SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
+
+        7 { //jumps
+            bindings = <
+                &trans     &trans     MS_JL      &jumpu     &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &jumpl     &jumpd     &jumpr     SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
+            >;
+        }; 
 
     };
 };
