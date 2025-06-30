@@ -167,7 +167,7 @@
 
 
 
-
+//&moled_clk 7 CAPS
         moled_clk: moled_clk { //hold mo and caps, tap mouse button
             compatible = "behavior-macro-two-param";
             wait-ms = <0>;
@@ -185,13 +185,7 @@
         ;
         };
 
-        mo_clk2: mo_clk2 { //hold mo w/caps, tap mouse button
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <0>;
-            bindings = <&moled_clk 6 CAPS>, <&mkp>;
-        };
+
 
   };
 }; 
@@ -539,7 +533,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &jumpl     MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &moled_clk 7 CAPS     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans    &lt 7 SPACE &mo 7      &trans     &trans     &trans     &trans                 
             >;
