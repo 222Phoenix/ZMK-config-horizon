@@ -553,7 +553,7 @@ macros {
             bindings = <
                 &lm 7 CAPS     &trans     &jumpl     MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &mo LSHIFT 2     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &lmc 7 CAPS     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans    &lt 7 SPACE &mo 7      &trans     &trans     &trans     &trans                 
             >;
         };        
