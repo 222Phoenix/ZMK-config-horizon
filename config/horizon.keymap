@@ -371,7 +371,6 @@ macros {
           <&macro_press &mo MACRO_PLACEHOLDER>, 
           <&macro_param_2to1>, 
           <&macro_press &kp MACRO_PLACEHOLDER>, 
-          <&macro_pause_for_release>, 
           <&macro_param_2to1>, 
           <&macro_press &kp MACRO_PLACEHOLDER>, 
           <&macro_param_1to1>, 
@@ -552,7 +551,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &lm 7 LSHIFT     &trans     &jumpl     MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &lmc 7 CAPS     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans    &lt 7 SPACE &mo 7      &trans     &trans     &trans     &trans                 
             >;
