@@ -375,6 +375,15 @@ macros {
         bindings
         = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(20000)>;            
     };    
+
+    jumpul: jumpul {
+        compatible = "zmk,behavior-macro";
+        #binding-cells = <0>;
+        bindings
+        = <&macro_tap_time 100>, <&macro_tap &mmv MOVE_X(20000) MOVE_Y(-20000)>;            
+    };
+
+
   };
 };
 
