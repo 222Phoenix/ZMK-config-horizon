@@ -24,10 +24,10 @@
 #define MS_JL &mmv MOVE_X(-9999)
 #define MS_JR &mmv MOVE_X(9999)
 
-#define JJL &jjl MOVE_LEFT 0
-#define JJD &jjl MOVE_LEFT 0
-#define JJU &jjl MOVE_LEFT 0
-#define JJR &jjl MOVE_LEFT 0
+#define JJL &jl MOVE_LEFT 0
+#define JJD &jd MOVE_DOWN 0
+#define JJU &ju MOVE_UP 0
+#define JJR &jr MOVE_RIGHT 0
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
@@ -215,7 +215,7 @@
         ms_ll: ms_ll { //ctrl ms_l to save
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&jjl MOVE_LEFT 0>, <&kp LC(S)>;
+            bindings = <JJL>, <&kp LC(S)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };        
         quot: quot { //shift quot is quote macro, quote quote left
