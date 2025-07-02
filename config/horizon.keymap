@@ -57,6 +57,10 @@
 #define EPON &ext_power EP_ON
 #define EPOFF &ext_power EP_OFF
 
+
+#define JJL &jjl MOVE_LEFT 0
+
+
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
 //};
@@ -137,7 +141,7 @@
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
-        hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button
+        hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button. not used?
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
@@ -164,6 +168,16 @@
             tapping-term-ms = <300>;
             bindings = <&mo>, <&to>;
         };
+
+
+        jjl: jjl { // &jjl &mmv MOVE_LEFT &jumpl
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&mmv>, <&jumpl>;
+        };
+
 
   };
 }; 
@@ -511,7 +525,7 @@ macros {
         2 { //mousekeys
             bindings = <
                 &trans     &trans     &jumpl     MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     JJL     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans    &lt 7 SPACE &mo 7      &trans     &trans     &trans     &trans                 
             >;
