@@ -32,7 +32,7 @@
 #define SCR_U &msc SCRL_UP
 #define SCR_R &msc SCRL_RIGHT
 
-#define JJL &jjl &mmv MOVE_LEFT &jumpl
+#define JJL &hold_tap &mmv MOVE_LEFT &jumpl
 
 #define CAD &kp LC(LA(DEL))
 #define CAT &kp LC(LA(TAB))
@@ -165,14 +165,6 @@
             flavor = "hold-preferred";
             tapping-term-ms = <300>;
             bindings = <&mo>, <&to>;
-        };
-
-        jjl: jjl { // &jjl &mmv MOVE_LEFT &jumpl
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <300>;
-            bindings = <&mmv>, <&jumpl>;
         };
 
   };
