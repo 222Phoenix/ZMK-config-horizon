@@ -24,6 +24,11 @@
 #define MS_JL &mmv MOVE_X(-9999)
 #define MS_JR &mmv MOVE_X(9999)
 
+#define JJL &jjl MOVE_LEFT 0
+#define JJD &jjl MOVE_LEFT 0
+#define JJU &jjl MOVE_LEFT 0
+#define JJR &jjl MOVE_LEFT 0
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 400  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10   // default: 10
 
@@ -56,10 +61,6 @@
 #define volu &kp C_VOL_UP
 #define EPON &ext_power EP_ON
 #define EPOFF &ext_power EP_OFF
-
-
-#define JJL &jjl MOVE_LEFT 0
-
 
 //&soft_off { //config to only turn off it the key is held for 0.5 seconds or longer.
 //    hold-time-ms = <500>; //not used, currently instant
@@ -147,7 +148,35 @@
             tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             bindings = <&mo>, <&mkp>;
+        };     
+        jl: jl { //hold move, tap jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&mmv>, <&jumpl>;
+        };
+        jd: jd { //hold move, tap jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&mmv>, <&jumpd>;
         };        
+        ju: ju { //hold move, tap jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&mmv>, <&jumpu>;
+        }; 
+        jr: jr { //hold move, tap jump
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <300>;
+            bindings = <&mmv>, <&jumpr>;
+        };            
         mo_clk: mo_clk { //hold mo, tap mouse button
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -167,18 +196,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <300>;
             bindings = <&mo>, <&to>;
-        };
-
-
-        jjl: jjl { // &jjl &mmv MOVE_LEFT &jumpl
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <300>;
-            bindings = <&mmv>, <&jumpl>;
-        };
-
-
+        };          
   };
 }; 
 
@@ -197,7 +215,7 @@
         ms_ll: ms_ll { //ctrl ms_l to save
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <MS_L>, <&kp LC(S)>;
+            bindings = <JJL>, <&kp LC(S)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };        
         quot: quot { //shift quot is quote macro, quote quote left
@@ -524,10 +542,10 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &jumpl     MS_U       &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     JJL     &ms_ll     MS_D       MS_R       SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     &jumpl     JJU        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &ms_ll     JJD        JJR        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans    &lt 7 SPACE &mo 7      &trans     &trans     &trans     &trans                 
+                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
 
@@ -566,15 +584,6 @@ macros {
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };  
-
-        7 { //jumps
-            bindings = <
-                &trans     &trans     &jumpl     &jumpu     &jumpr     &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &jumpl     &jumpd     &jumpr     SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &none      &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
-                &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
-            >;
-        }; 
 
     };
 };
