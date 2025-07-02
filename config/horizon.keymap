@@ -215,7 +215,7 @@
         ms_ll: ms_ll { //ctrl ms_l to save
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <JJL>, <&kp LC(S)>;
+            bindings = <&jjl MOVE_LEFT 0>, <&kp LC(S)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };        
         quot: quot { //shift quot is quote macro, quote quote left
