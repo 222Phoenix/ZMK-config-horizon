@@ -159,7 +159,7 @@
             tapping-term-ms = <300>; 
             bindings = <&mo>, <&l3>;
             };
-        mo_to: behavior_mo_to { //hold mo, tap to
+        mo_to: mo_to { //hold mo, tap to
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -167,7 +167,7 @@
             bindings = <&mo>, <&to>;
         };
 
-        jjl: behavior_mo_to { // &jjl &mmv MOVE_LEFT &jumpl
+        jjl: jjl { // &jjl &mmv MOVE_LEFT &jumpl
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
