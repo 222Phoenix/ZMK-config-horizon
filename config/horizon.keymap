@@ -125,7 +125,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <300>;
-            bindings = <MS_L>, <JJL>>;
+            bindings = <MS_L>, <JJL>;
         };
 
 
