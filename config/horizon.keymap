@@ -124,10 +124,27 @@
         tdjumpl: tdjumpl {                                //rpar
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <175>;
             bindings = <MS_L>, <JJL>;
         };
-
+        tdjumpd: tdjumpd {                                //rpar
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <MS_D>, <JJD>;
+        };
+        tdjumpu: tdjumpu {                                //rpar
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <MS_U>, <JJU>;
+        };       
+        tdjumpr: tdjumpr {                                //rpar
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <175>;
+            bindings = <MS_R>, <JJR>;
+        };       
 
     };
 };
@@ -551,8 +568,8 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &trans     &jumpl     JJU        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &trans     &ms_ll     JJD        JJR        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     &jumpl     &tdjumpu        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &tdjumpl     &ms_ll     &tdjumpd        &tdjumpr        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
