@@ -260,6 +260,12 @@
             bindings = <&mkp LCLK>, <&kp LC(J)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        vold: vold { //ctrl vold is ctrl x for cut
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <vold>, <&kp LC(X)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };        
     };
 };
 
