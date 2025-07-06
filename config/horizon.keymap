@@ -260,7 +260,7 @@
             bindings = <&mkp LCLK>, <&kp LC(J)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        vold: vold { //ctrl vold is ctrl x for cut
+        voldd: voldd { //ctrl vold is ctrl x for cut
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <vold>, <&kp LC(X)>;
@@ -550,7 +550,7 @@ macros {
             bindings = <
                 &trans     &trans     &jumpl     JJU        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
                 &trans     &trans     &ms_ll     JJD        JJR        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
-                &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
+                &trans     &trans     &voldd     volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
         };        
