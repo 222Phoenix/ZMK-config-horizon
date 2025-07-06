@@ -542,8 +542,8 @@ macros {
 
         2 { //mousekeys
             bindings = <
-                &trans     &jumpu     &jumpl     JJU        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
-                &trans     &jumpd     &ms_ll     JJD        JJR        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
+                &trans     &trans     &jumpl     JJU        &ms_jrr    &scruu                           &trans     &tdltb     COPPST     &tdrtb     &trans     &trans
+                &trans     &trans     &ms_ll     JJD        JJR        SCR_D                            &trans     &lclick    &tdmck     &rck       &kp PSCRN  &trans
                 &trans     &trans     vold       volu       &trans     &dashm     &trans     &trans     &kp PG_UP  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &trans
                 &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans                 
             >;
