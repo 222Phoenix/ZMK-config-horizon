@@ -213,7 +213,7 @@
         quot: quot { //shift quot is quote macro
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <APOS>, <&quotm>;
+            bindings = <&kp APOS>, <&quotm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
         rck: rck { //ctrl rclick is ctrl l and exit nav lyr
