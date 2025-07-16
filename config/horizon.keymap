@@ -15,16 +15,16 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define MS_L &mmv MOVE_LEFT
+#define MS_L &mmv MOVE_LEFT     //regular mouse moves
 #define MS_D &mmv MOVE_DOWN
 #define MS_U &mmv MOVE_UP
 #define MS_R &mmv MOVE_RIGHT
 
 #define U_MOUSE_MOVE_MAX 99999
-#define MS_JL &mmv MOVE_X(-9999)
+#define MS_JL &mmv MOVE_X(-9999)    //not used. macros for jumps
 #define MS_JR &mmv MOVE_X(9999)
 
-#define JJL &jl MOVE_LEFT 0
+#define JJL &jl MOVE_LEFT 0     //tap for jump, hold for mouse moves
 #define JJD &jd MOVE_DOWN 0
 #define JJU &ju MOVE_UP 0
 #define JJR &jr MOVE_RIGHT 0
@@ -44,7 +44,6 @@
 #define SENT   &hold_tap LSHFT ENTER
 #define SLCN   &hold_tap LS(SEMI) SEMI
 #define SLSH   &hold_tap QMARK SLASH
-#define QUOTE  &hold_tap_slow LS(APOS) APOS
 
 #define BTBLE &out OUT_BLE 
 #define BTCLR &bt BT_CLR
@@ -135,13 +134,6 @@
             quick-tap-ms = <0>;
             bindings = <&kp>, <&kp>;
         };
-        hold_tap_slow: hold_tap_slow { //hold tap for regular keycodes. slow for single quote. 
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <500>;
-            quick-tap-ms = <0>;
-            bindings = <&kp>, <&kp>;
-        };
         hold_tap_clk: hold_tap_clk { //hold mo, tap mouse button. not used?
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -218,10 +210,10 @@
             bindings = <MS_L>, <&kp LC(S)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };        
-        quot: quot { //shift quot is quote macro, quote quote left
+        quot: quot { //shift quot is quote macro
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <QUOTE>, <&quotm>;
+            bindings = <APOS>, <&quotm>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };        
         rck: rck { //ctrl rclick is ctrl l and exit nav lyr
